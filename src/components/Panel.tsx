@@ -1,0 +1,25 @@
+import { FC } from "react";
+import { IInfoPanel } from "../types/IInfo";
+import { Link, useLocation } from "react-router-dom";
+export const Panel: FC<IInfoPanel> = ({ selectAll, select, remove }: IInfoPanel) => {
+  const location = useLocation();
+  return (
+    <div className="flex flex-row justify-start items-center h-[60px]  w-full border-b-[3px] border-[#F3F4F6]">
+      <div className="flex flex-row border-r-[3px] border-[#F3F4F6]  h-full items-center px-[10px] sx:px-5 sm:px-[30px]  gap-[10px] sm:gap-5 md:gap-[10px] md:px-5 l:gap-5 l:px-[30px]">
+        <label className="standart_text ">Выделить все</label>
+        <input
+          type="checkbox"
+          id="scales"
+          name="scales"
+          checked={selectAll}
+          onChange={(e) => select(e.target.checked)}
+          className=" h-4 w-4 sx:h-5 sx:w-5"
+        />
+      </div>
+      <div className="flex flex-row justify-between items-center w-full px-[10px] sx:px-5 sm:px-[30px] md:gap-[10px] md:px-5 l:gap-5 l:px-[30px]">
+        <button type="button" className=" standart_text cursor-pointer" onClick={() => remove()} >Удалить</button>
+        <Link to={location.pathname + "/new"} className=" standart_text cursor-pointer" >Добавить</Link>
+      </div>
+    </div>
+  );
+};
