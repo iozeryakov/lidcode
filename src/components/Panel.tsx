@@ -6,7 +6,7 @@ export const Panel: FC<IInfoPanel> = ({ selectAll, select, remove }: IInfoPanel)
   return (
     <div className="flex flex-row justify-start items-center h-[60px]  w-full border-b-[3px] border-[#F3F4F6]">
       <div className="flex flex-row border-r-[3px] border-[#F3F4F6]  h-full items-center px-[10px] sx:px-5 sm:px-[30px]  gap-[10px] sm:gap-5 md:gap-[10px] md:px-5 l:gap-5 l:px-[30px]">
-        <label className="standart_text ">Выделить все</label>
+        <label className="standart_text whitespace-nowrap ">Выделить все</label>
         <input
           type="checkbox"
           id="scales"
