@@ -11,7 +11,7 @@ export const InputDate: FC<IInputDate> = ({ name, register, title, required, err
                 type="datetime-local"
                 {...register(title, { required })}
             />
-            {error && (<label className="standart_text font-medium font-roboto text-sm text-red-600">{error.message}</label>)}
+            {error && (<label className="error_valid">{error.message}</label>)}
         </div>
     );
 };

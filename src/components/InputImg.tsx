@@ -113,7 +113,7 @@ export const InputImg: FC<IInputImg> = ({ name, register, watch, title, setValue
         </>
       )}
       {error && (
-        <label className="standart_text font-medium font-roboto text-sm text-red-600 overflow-hidden text-ellipsis whitespace-nowrap">{error}</label>
+        <label className="error_valid">{error}</label>
       )}
     </div>
   );

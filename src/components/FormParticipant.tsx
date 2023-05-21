@@ -44,7 +44,7 @@ export const FormParticipant: FC<IInputParticipant> = ({
         {...register("participant[" + (number - 1) + "].reserve")}
       />
       {info.reserve && !info.visibleCoach && !info.visibleContact && (
-        <label className="standart_text font-medium font-roboto text-sm text-red-600">
+        <label className="error_valid">
           Участник в резерве должен быть или контакным лицом или тренером
         </label>
       )}

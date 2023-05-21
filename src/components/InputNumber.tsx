@@ -11,7 +11,7 @@ export const InputNumber: FC<IInputNumber> = ({ name, register, pattern, require
                 type="number"
                 {...register(title, { required, pattern, min, max })}
             />
-            {error && (<label className="standart_text font-medium font-roboto text-sm text-red-600">{error.message}</label>)}
+            {error && (<label className="error_valid">{error.message}</label>)}
         </div>
     );
 };

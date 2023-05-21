@@ -17,7 +17,7 @@ export const InputText: FC<IInputText> = ({
         placeholder={placeholder}
         {...register(title, { required, pattern, minLength, maxLength })}
       />
-      {error && (<label className="standart_text font-medium font-roboto text-sm text-red-600">{error.message}</label>)}
+      {error && (<label className="error_valid">{error.message}</label>)}
 
     </div>
   );

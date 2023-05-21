@@ -111,7 +111,7 @@ export const FormParticipants: FC<IInputTeam> = ({ register, errors, unregister,
   };
 
   return (
-    <div className="flex flex-col w-full ">
+    <div className="flex flex-col w-full overflow-hidden ">
       <InputText register={register} title="name" required="Пожалуйста, укажите название" maxLength={{ value: 100, message: "Превышенно количество букв" }} error={errors.name} type="text" name="Название команды" placeholder="Название команды*" />
       <div className=" flex flex-col">
         {participants.map((i, index) => (

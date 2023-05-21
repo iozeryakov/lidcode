@@ -9,14 +9,17 @@
   .button{
     @apply overflow-hidden text-ellipsis shadow-[0px_0px_8px_rgb(215,218,224)]  py-[5px] m-[2px] px-[10px] hover:m-0  hover:py-[7px] hover:px-3 text-center w-full text-sm sx:text-base sm:text-lg   rounded font-roboto font-semibold md:text-xl cursor-pointer ;
   }
+  .error_valid{
+    @apply standart_text font-medium font-roboto sm:text-sm text-xs text-red-600;
+  }
   .standart_text {
-    @apply text-xs  font-semibold whitespace-nowrap sx:text-sm sm:text-base md:text-sm  l:text-base lg:text-lg;
+    @apply text-xs  font-semibold  sx:text-sm sm:text-base md:text-sm  l:text-base lg:text-lg;
   }
   .not-standart_text {
     @apply text-sm  font-normal font-roboto whitespace-nowrap sx:text-base sm:text-lg md:text-base  l:text-base lg:text-xl;
   }
   .wrapper {
-    @apply flex flex-col w-full py-5  px-[10px] sx:px-5 sm:px-[30px] md:px-5 l:px-[30px];
+    @apply flex flex-col w-full py-5  px-[10px] sx:px-5 sm:px-[30px] md:px-5 l:px-[30px] overflow-hidden;
   }
   .burger {
     @apply before:transition-all before:ease-in before:duration-100 after:transition-all after:ease-in after:duration-100 
