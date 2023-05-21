@@ -19,7 +19,7 @@
     @apply text-sm  font-normal font-roboto whitespace-nowrap sx:text-base sm:text-lg md:text-base  l:text-base lg:text-xl;
   }
   .wrapper {
-    @apply flex flex-col w-full py-5  px-[10px] sx:px-5 sm:px-[30px] md:px-5 l:px-[30px] overflow-hidden;
+    @apply flex flex-col w-full py-5  px-[10px] sx:px-5 sm:px-[30px] md:px-5 l:px-[30px];
   }
   .burger {
     @apply before:transition-all before:ease-in before:duration-100 after:transition-all after:ease-in after:duration-100 
