@@ -5,7 +5,7 @@ import { IAdminLayout } from "../types/ILayout";
 import useWindowDimensions from "../utils/size";
 import { observer } from "mobx-react-lite";
 import { Context } from "..";
-import { AdminLogin } from "../pages/Admin/AdminLogin/AdminLogin";
+import { Login } from "../components/Login";
 
 
 export const AdminLayout: FC<IAdminLayout> = observer(({
@@ -17,10 +17,12 @@ export const AdminLayout: FC<IAdminLayout> = observer(({
 }: IAdminLayout) => {
   const { user } = useContext(Context)
   const { width } = useWindowDimensions()
+
   const buttonRef = useRef(null)
   const [active, setActive] = useState(false);
   const [activeFilter, setActiveFilter] = useState(false);
   const list = [{ id: 1, name: "Все" }, { id: 2, name: "Не все" }, { id: 3, name: "..............................." }]
+  const isOpenMenu = (active && width < 850)
 
   useEffect(() => {
     const handleClick = (e: any) => {
@@ -34,19 +36,19 @@ export const AdminLayout: FC<IAdminLayout> = observer(({
   return (<>
     {user.isAuth ?
       <div className=" flex flex-col min-h-screen">
-        <Header active={active} setActive={setActive} />
+        <Header active={active} setActive={setActive} admin />
         <main className="bg-[#F3F4F6] grow block relative">
-          {active && (
+          {isOpenMenu && (
             <div className="absolute w-full h-full bg-[rgba(0,0,0,0.35)] z-10"></div>
           )}
           <div className="flex flex-col md:flex-row  relative">
-            {(active && width < 850) && <Menu />}
+            {isOpenMenu && <Menu />}
             <div className="hidden md:block">
               <Menu />
             </div>
-            <div className=" max-w-7xl w-full  mt-[30px] sm:px-5 md:px-[60px] ">
-              <div className=" flex justify-between items-center">
-                <label className=" pl-[10px] sm:p-0 sm:text-xl text-lg font-semibold">
+            <div className=" max-w-7xl w-full  mt-[30px] sm:px-5 md:px-[60px] overflow-hidden ">
+              <div className=" flex justify-between items-center overflow-hidden">
+                <label className=" pl-[10px] sm:p-0 sm:text-xl text-lg font-semibold overflow-hidden text-ellipsis whitespace-nowrap">
                   {name}
                 </label>
                 {filter && <div className="block relative justify-end">
@@ -71,6 +73,6 @@ export const AdminLayout: FC<IAdminLayout> = observer(({
           </div>
         </main>
       </div>
-      : user.user && <AdminLogin />}
+      : <Login />}
   </>);
 });

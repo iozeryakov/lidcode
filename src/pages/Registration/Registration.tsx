@@ -17,9 +17,9 @@ export const Registration: FC = () => {
 
   return (
     <MainLayout>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full max-w-[480px] bg-white rounded-lg shadow-[0px_0px_8px_rgb(215,218,224)] items-center sx:px-10 px-5 py-[15px] sx:py-[30px] gap-[10px]">
-        <div className=" font-bold sx:text-2xl text-xl">Регистрация</div>
-        <div className=" flex flex-col w-full pl-[10px] pb-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full max-w-[480px] bg-white rounded-lg shadow-[0px_0px_8px_rgb(215,218,224)] items-center sx:px-10 px-5 py-[15px] sx:py-[30px] gap-[10px] overflow-hidden">
+        <div className=" font-bold sx:text-2xl text-xl overflow-hidden text-ellipsis whitespace-nowrap">Регистрация</div>
+        <div className=" flex flex-col w-full pb-5">
           <InputText register={register} title="fullName" error={errors.fullName} type="text" name="ФИО" placeholder="ФИО*" />
           <InputText register={register} title="email" error={errors.email} type="text" name="Email" placeholder="Email*" />
           <InputText register={register} title="phone" error={errors.phone} type="text" name="Телефон" placeholder="Телефон*" />

@@ -27,7 +27,7 @@ export const DropdownItems: FC<Ip> = ({ name }: Ip) => {
 
     return (
         <div className="flex flex-col  w-full pb-[5px]">
-            <label className="standart_text font-normal font-roboto">{name}</label>
+            <label className="standart_text font-normal font-roboto ">{name}</label>
             {list2.map(i => (
                 <div key={i.id} className=" flex gap-[5px] items-center mb-[5px]">
                     <img
@@ -37,7 +37,7 @@ export const DropdownItems: FC<Ip> = ({ name }: Ip) => {
                         className=" cursor-pointer w-4 h-4 hover:w-[22px] hover:h-[22px] m-[5px] sx:w-[25px] sx:h-[25px] sx:hover:w-[27px] sx:hover:h-[27px] hover:m-[4px]"
 
                     />
-                    <Link className="standart_text font-medium h-min w-min font-roboto px-[15px] py-1  border-[#D7DAE0] border-[3px] rounded-lg mt-[5px] outline-none flex items-center"
+                    <Link className="standart_text font-medium h-min w-min font-roboto px-[15px] py-1   border-[#D7DAE0] border-[3px] rounded-lg mt-[5px] outline-none flex items-center"
                         key={i.id}
                         to={"#"}>
                         {i.name}

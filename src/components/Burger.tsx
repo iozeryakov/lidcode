@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { IInfoBurger } from "../types/IInfo";
-export const Burger: FC<IInfoBurger> = ({ active, setActive }: IInfoBurger) => {
+import { IInfoHeader } from "../types/IInfo";
+export const Burger: FC<IInfoHeader> = ({ active, setActive }: IInfoHeader) => {
   return (
     <div
       onClick={() => {

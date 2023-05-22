@@ -7,9 +7,10 @@ export interface IInfoParticipant {
     visibleContact: boolean;
     visibleCoach: boolean;
 }
- export interface IInfoBurger {
+ export interface IInfoHeader {
     active: boolean;
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
+    admin?:boolean
 }
 export interface IInfoPanel {
     selectAll: boolean;

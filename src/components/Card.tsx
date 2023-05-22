@@ -14,17 +14,18 @@ export const Card: FC = () => {
                     className=" rounded-lg h-[200px] md:h-[250px] lg:h-[300px] object-cover p-[5px] "
                 />
             </Link>
-            <div className=" flex flex-col w-full justify-between ">
-                <div className="mt-[5px] mx-[5px] sm:mt-[10px] sm:mx-[10px]">
+            <div className=" flex flex-col w-full justify-between overflow-hidden ">
+                <div className="mt-[5px] mx-[5px] sm:mt-[10px] sm:mx-[10px]  overflow-hidden">
                     <Link
-                        className=" text-sm sm:text-base md:text-lg lg:text-xl font-bold overflow-hidden text-ellipsis whitespace-nowrap "
+                        className=" text-sm sm:text-base md:text-lg lg:text-xl font-bold    "
                         to={"../" + EVENT_ROUTER + "/1"}
                     >
-                        Соревнование
+                        <div className="text-ellipsis whitespace-nowrap overflow-hidden">
+                            Соревнование
+                        </div>
                     </Link>
                     <p className=" mx-[5px] font-semibold font-roboto text-[rgba(75,85,99,0.4)] text-xs md:text-sm lg:text-base  overflow-hidden text-ellipsis whitespace-nowrap ">
                         Командноеное участие
-
                     </p>
                     <p className=" mx-[5px] font-semibold font-roboto text-[rgba(75,85,99,0.4)] text-xs md:text-sm  lg:text-base overflow-hidden text-ellipsis whitespace-nowrap ">
                         Ожидание регистрации

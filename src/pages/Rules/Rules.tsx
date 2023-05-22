@@ -13,7 +13,7 @@ export const Rules: FC = () => {
                 <div className="flex  justify-between w-full items-center gap-5">
                     <div className=" font-bold md:text-2xl overflow-hidden text-ellipsis whitespace-nowrap text-base sx:text-lg sm:text-xl">Соревнование№1</div>
 
-                    <Link to={"../" + EVENT_ROUTER + "/" + id} className="button w-min">Назад</Link>
+                    <Link to={"../" + EVENT_ROUTER + "/" + id} className="button w-min min-w-min">Назад</Link>
 
                 </div>
                 <div className="flex flex-col w-full  border rounded-lg border-[rgb(242,244,246)] mt-5 sm:p-5 p-[10px]">

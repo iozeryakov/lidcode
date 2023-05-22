@@ -9,7 +9,7 @@ export const CardSponOrg: FC = () => {
                 alt="event"
                 className=" rounded-lg h-[60px] object-cover p-[5px] "
             />
-            <div className=" font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg overflow-hidden text-ellipsis">Яргу им. П.Г. Демидоваffffffffffffffffffffffffffffffffffffffffffffffffffff ffffffffffffffffffffff</div>
+            <div className=" font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg overflow-hidden text-ellipsis whitespace-nowrap">Яргу им. П.Г. Демидоваffffffffffffffffffffffffffffffffffffffffffffffffffff ffffffffffffffffffffff</div>
         </div>
     );
 };

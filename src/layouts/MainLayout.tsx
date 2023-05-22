@@ -1,17 +1,16 @@
 import { FC, useState } from "react";
 import { IMainLayout } from "../types/ILayout";
 import useWindowDimensions from "../utils/size";
-import { HeaderMain } from "../components/HeaderMain";
+import { Header } from "../components/Header";
 export const MainLayout: FC<IMainLayout> = ({
     children,
-
 }: IMainLayout) => {
     const { width } = useWindowDimensions()
     const [active, setActive] = useState(false)
 
     return (
         <div className=" flex flex-col min-h-screen">
-            <HeaderMain active={active} setActive={setActive} />
+            <Header active={active} setActive={setActive} />
 
             <main className="bg-[rgb(243,244,246)] grow block relative">
                 {(active && width < 640
