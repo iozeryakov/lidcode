@@ -23,10 +23,10 @@ export const AdminEventOne: FC = () => {
         <FormEvent register={register} watch={watch} setValue={setValue} errors={errors} active={active} setActive={setActive}>
           <InputFile register={register} title="file" watch={watch} setValue={setValue} name="Результаты" />
         </FormEvent>
-        <DropdownItems name="Выбранные команды" />
-        <DropdownItems name="Выбранные материалы" />
-        <DropdownItems name="Выбранные спонсоры" />
-        <DropdownItems name="Выбранные организаторы" />
+        <DropdownItems id="setTeam" name="Выбранные команды" />
+        <DropdownItems id="selMat" name="Выбранные материалы" />
+        <DropdownItems id="selSpon" name="Выбранные спонсоры" />
+        <DropdownItems id="selOrg" name="Выбранные организаторы" />
       </div>
     </AdminLayout>);
 };

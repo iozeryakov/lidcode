@@ -18,7 +18,7 @@ export const RegistrationTm: FC = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full max-w-[480px] bg-white rounded-lg shadow-[0px_0px_8px_rgb(215,218,224)] items-center sx:px-10 px-5 py-[15px] sx:py-[30px] gap-5">
         <div className=" font-bold sx:text-2xl text-xl">Регистрация</div>
         <FormParticipants watch={watch} register={register} errors={errors} unregister={unregister} />
-        <input type="submit" className="button" value="Отправить заявку на участие" />
+        <input id="button" type="submit" className="button" value="Отправить заявку на участие" />
       </form>
     </MainLayout>
   );

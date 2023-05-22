@@ -5,11 +5,12 @@ export const ItemMenu: FC<IInfoItemMenu> = ({
   src,
   alt,
   active = false,
-  to,
+  to, id
 }: IInfoItemMenu) => {
   return (
     <li>
       <Link
+        id={id}
         className={
           active
             ? "flex flex-row items-center justify-start cursor-pointer h-10 sm:h-[50px]  bg-[#F3F4F6] md:bg-white md:rounded-lg"

@@ -15,7 +15,7 @@ export const FormEvent: FC<IInputEvent> = ({ register, watch, setValue, errors, 
     return (
         <>
             <InputText register={register} title="title" required="Пожалуйста, укажите название" maxLength={{ value: 100, message: "Превышенно количество букв" }} error={errors.title} name="Название" placeholder="Название соревнования*" />
-            <DropdownButton name="Статус" list={StatusList} sel={StatusList.filter((i) => i.id === active).length ? StatusList.filter((i) => i.id === active)[0].name : ""} setSel={setActive} />
+            <DropdownButton id="status" name="Статус" list={StatusList} sel={StatusList.filter((i) => i.id === active).length ? StatusList.filter((i) => i.id === active)[0].name : ""} setSel={setActive} />
             <InputNumber register={register} title="maxTeam" required="Пожалуйста, укажите количество" min={{ value: 1, message: "Маленькое число" }} max={{ value: 1000, message: "Большое число" }} error={errors.maxTeam} name="Максимальное количество команд" />
             <InputNumber register={register} title="minTeam" required="Пожалуйста, укажите количество" min={{ value: 1, message: "Маленькое число" }} max={{ value: 1000, message: "Большое число" }} error={errors.minTeam} name="Минимальное количество участников в команде" />
             <InputNumber register={register} title="maxParticipant" required="Пожалуйста, укажите количество" min={{ value: 1, message: "Маленькое число" }} max={{ value: 1000, message: "Большое число" }} error={errors.maxParticipant} name="Максимальное количество участников в команде" />

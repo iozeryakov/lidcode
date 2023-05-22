@@ -27,7 +27,7 @@ export const Registration: FC = () => {
           <InputText register={register} title="faculty" error={errors.faculty} type="text" name="Факультет" placeholder="Факультет" />
           <InputText register={register} title="course" error={errors.course} type="text" name="Курс" placeholder="Курс" />
         </div>
-        <input type="submit" className="button" value="Отправить заявку на участие" />
+        <input id="button" type="submit" className="button" value="Отправить заявку на участие" />
       </form>
     </MainLayout>
   );

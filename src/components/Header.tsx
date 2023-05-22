@@ -9,6 +9,7 @@ export const Header: FC<IInfoHeader> = ({ active, setActive, admin }: IInfoHeade
     <header className=" flex relative shadow-xl  shadow-[rgba(75,85,99,0.2)] justify-center z-10">
       <nav className={admin ? "flex justify-between items-center w-full h-16 px-[15px] sx:px-[30px]" : "flex justify-between items-center w-full max-w-5xl h-16  mx-[10px]"}>
         <Link
+          id="logo"
           className="max-w-min max-h-min"
           to={admin ? "../" + ADMIN_EVENT_ROUTER : "../"}
         >
@@ -35,7 +36,7 @@ export const Header: FC<IInfoHeader> = ({ active, setActive, admin }: IInfoHeade
           </>
           :
           <>
-            <Link to={"../"} className=" hidden sm:block font-semibold text-sx whitespace-nowrap  cursor-pointer" >Архив соревнований</Link>
+            <Link id="arxiv" to={"../"} className=" hidden sm:block font-semibold text-sx whitespace-nowrap  cursor-pointer" >Архив соревнований</Link>
             <div className="sm:hidden"><Burger active={active} setActive={setActive} /></div>
           </>}
 

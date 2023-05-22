@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { Page } from "./Page";
 export const Pages: FC = () => {
-  const kek=()=> {
+  const kek = () => {
     console.log("pages");
   }
   return (
     <div className="flex flex-row justify-between items-center h-[74px]  w-full px-[10px] sx:px-5 sm:px-[30px] md:gap-[10px] md:px-5 l:gap-5 l:px-[30px]">
-      <button type="button" className=" standart_text cursor-pointer" onClick={() => kek()} >Назад</button>
+      <button id="back" type="button" className=" standart_text cursor-pointer" onClick={() => kek()} >Назад</button>
       <div className="flex flex-row items-center h-[74px] px-[10px] sx:px-5 sm:px-[30px] gap-1 md:px-5  l:px-[30px]">
         <Page number="1" active />
         <Page number="2" />
@@ -22,7 +22,7 @@ export const Pages: FC = () => {
         </div>
         <Page number="15" />
       </div>
-      <button type="button" className=" standart_text cursor-pointer" onClick={() => kek()} >Вперед</button>
+      <button id="next" type="button" className=" standart_text cursor-pointer" onClick={() => kek()} >Вперед</button>
     </div>
   );
 };

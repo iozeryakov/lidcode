@@ -18,30 +18,36 @@ export const Menu: FC = () => {
         <User />
       </div>
       <ItemMenu
+        id="event"
         src="/img/event.svg"
         alt="Соревнования"
         to={"../" + ADMIN_EVENT_ROUTER}
         active={pathname.includes("event") ? true : false}
       />
       <ItemMenu
+        id="team"
         src="/img/team.svg"
         alt="Команды"
         to={"../" + ADMIN_TEAM_ROUTER}
         active={pathname.includes("team") ? true : false}
       />
+
       <ItemMenu
+        id="material"
         src="/img/material.svg"
         alt="Материалы"
         to={"../" + ADMIN_MATERIAL_ROUTER}
         active={pathname.includes("material") ? true : false}
       />
       <ItemMenu
+        id="organizators"
         src="/img/organizators.svg"
         alt="Организаторы"
         to={"../" + ADMIN_ORGANIZER_ROUTER}
         active={pathname.includes("organizer") ? true : false}
       />
       <ItemMenu
+        id="sponsors"
         src="/img/sponsors.svg"
         alt="Спонсоры"
         to={"../" + ADMIN_SPONSOR_ROUTER}

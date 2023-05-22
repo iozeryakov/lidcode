@@ -40,8 +40,7 @@ export const ContentAll: FC<IInfoContentAll> = ({ data }: IInfoContentAll) => {
           <div className="flex flex-row border-r-[3px] border-[#F3F4F6]  h-full items-center px-[10px] sx:px-5 sm:px-[30px]  md:px-5  l:px-[30px]">
             <input
               type="checkbox"
-              id="scales"
-              name="scales"
+              id={"chech_" + i.id}
               checked={i.checked}
               onChange={(e) =>
                 setContentAll((prev) =>

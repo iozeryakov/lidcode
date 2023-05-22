@@ -7,6 +7,7 @@ export const InputNumber: FC<IInputNumber> = ({ name, register, pattern, require
         <div className="flex flex-col  w-full pb-[5px]">
             <label className="standart_text font-normal font-roboto">{name}</label>
             <input
+                id={title}
                 className="standart_text font-normal font-roboto w-28 pl-[30px] h-10 sm:h-[50px] border-[#D7DAE0] border-[3px] rounded-lg mt-[5px] outline-none"
                 type="number"
                 {...register(title, { required, pattern, min, max })}

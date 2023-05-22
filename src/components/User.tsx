@@ -10,12 +10,12 @@ export const User: FC = observer(() => {
           <img className="w-[30px] h-[30px]" src="/img/user.svg" alt="Logout" />
         </div>
 
-        <label className="pl-[15px] sx:pl-[30px] md:p-0 text-lg sm:text-xl font-semibold max-w-sm overflow-hidden text-ellipsis whitespace-nowrap">
+        <label id="login" className="pl-[15px] sx:pl-[30px] md:p-0 text-lg sm:text-xl font-semibold max-w-sm overflow-hidden text-ellipsis whitespace-nowrap">
           {user.user?.login}
         </label>
       </div>
 
-      <div className="block w-[32px] h-[32px] min-w-[32px]" onClick={() => user.setIsAuth(false)}>
+      <div id="logout" className="block w-[32px] h-[32px] min-w-[32px]" onClick={() => user.setIsAuth(false)}>
         <img
           className=" transition-all ease-in duration-300 w-[30px] h-[30px] cursor-pointer hover:w-[32px] hover:h-[32px] p-[1px] hover:p-0 "
           src="/img/logout.svg"

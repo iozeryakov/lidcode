@@ -25,7 +25,12 @@ export interface IInfoDropdownButton {
     list: IInfoList[]
     sel: string
     name: string
+    id:string
     setSel: React.Dispatch<React.SetStateAction<number>> | ((id: number) => void)
+}
+export interface IInfoDropdownItems {
+  name: string
+  id: string
 }
 interface IInfoList{
     id:number,
@@ -45,6 +50,7 @@ export interface IInfoItemMenu {
   alt: string;
   to: string;
   active: boolean;
+  id:string
 }
 export interface IInfoMainButton {
   name: string

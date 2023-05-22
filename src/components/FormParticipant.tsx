@@ -23,6 +23,7 @@ export const FormParticipant: FC<IInputParticipant> = ({
         {removeData && (
           <img
             src="/img/close.svg"
+            id={"close_" + number}
             alt="close"
             className=" cursor-pointer w-[25px] h-[25px] m-[5px]  hover:w-[27px] hover:h-[27px] hover:m-[4px]"
             onClick={() => removeData(info.id)}
@@ -58,8 +59,9 @@ export const FormParticipant: FC<IInputParticipant> = ({
         className={info.visibleContact ? "flex gap-5 items-center" : "hidden"}
       >
         <input
+          id={"participant[" + (number - 1) + "].contact"}
           type="checkbox"
-          id="scales"
+
           className=" h-4 w-4 sx:h-5 sx:w-5"
 
           {...register("participant[" + (number - 1) + "].contact")}
@@ -71,8 +73,7 @@ export const FormParticipant: FC<IInputParticipant> = ({
       <div className={info.visibleCoach ? "flex gap-5 items-center" : "hidden"}>
         <input
           type="checkbox"
-          id="scales"
-
+          id={"participant[" + (number - 1) + "].coach"}
           className=" h-4 w-4 sx:h-5 sx:w-5"
           {...register("participant[" + (number - 1) + "].coach")}
         />

@@ -3,11 +3,14 @@ import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { EVENT_ROUTER } from "../utils/consts";
 
-export const Card: FC = () => {
+interface IP {
+    id: string
+}
+export const Card: FC<IP> = ({ id }: IP) => {
 
     return (
         <div className="flex max-h-[200px] h-[200px] md:max-h-[250px] md:h-[250px] lg:max-h-[300px] lg:h-[300px] w-full max-w-5xl bg-white rounded-lg shadow-[0px_0px_8px_rgb(215,218,224)] overflow-hidden ">
-            <Link to={"../" + EVENT_ROUTER + "/1"} className="flex justify-center max-w-[100px] sx:max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] lg:h-[300px] w-full h-[200px] md:h-[250px] overflow-hidden">
+            <Link to={"../" + EVENT_ROUTER + "/1"} id={"img_" + id} className="flex justify-center max-w-[100px] sx:max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] lg:h-[300px] w-full h-[200px] md:h-[250px] overflow-hidden">
                 <img
                     src="/img/1.png"
                     alt="event"
@@ -17,6 +20,7 @@ export const Card: FC = () => {
             <div className=" flex flex-col w-full justify-between overflow-hidden ">
                 <div className="mt-[5px] mx-[5px] sm:mt-[10px] sm:mx-[10px]  overflow-hidden">
                     <Link
+                        id={"link_" + id}
                         className=" text-sm sm:text-base md:text-lg lg:text-xl font-bold    "
                         to={"../" + EVENT_ROUTER + "/1"}
                     >
@@ -45,7 +49,7 @@ export const Card: FC = () => {
                 Markdown описание Markdown описание Markdown описание Markdown описание"  />
                 </div>
                 <div className="mx-[10px] sx:mx-5 mb-5 z-20 flex items-center justify-center ">
-                    <Link to={"../" + EVENT_ROUTER + "/1"} className="button whitespace-nowrap">Посмотреть подробнее</Link>
+                    <Link id={"button_" + id} to={"../" + EVENT_ROUTER + "/1"} className="button whitespace-nowrap">Посмотреть подробнее</Link>
                 </div>
 
             </div>

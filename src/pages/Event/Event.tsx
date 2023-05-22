@@ -24,7 +24,7 @@ export const Event: FC = () => {
             <div className="mx-[5px] font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg text-center">Регистрация закроется 15.04.2023 в 15:30</div>
             <div className="mx-[5px] font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg text-center">(осталось 12 дней)</div>
 
-            <Link to={"../" + REGISTRATION_ROUTER + "/" + id} className="button w-4/5">Регистрация на участие</Link>
+            <Link id="reg" to={"../" + REGISTRATION_ROUTER + "/" + id} className="button w-4/5">Регистрация на участие</Link>
 
           </div>
         </div>
@@ -35,7 +35,7 @@ export const Event: FC = () => {
         <div className="flex items-center gap-5">
           <div className=" font-semibold md:text-xl text-sm sx:text-base sm:text-lg overflow-hidden text-ellipsis whitespace-nowrap">Правила</div>
 
-          <Link to={'../' + RULES_ROUTER + "/" + id} className="button w-min">Открыть</Link>
+          <Link id="open" to={'../' + RULES_ROUTER + "/" + id} className="button w-min">Открыть</Link>
         </div>
         <div className="overflow-hidden">
           <div className=" font-semibold md:text-xl text-sm sx:text-base sm:text-lg mb-[10px] overflow-hidden text-ellipsis whitespace-nowrap">Расписание</div>
@@ -44,7 +44,7 @@ export const Event: FC = () => {
         </div>
         <div className="overflow-hidden">
           <div className=" font-semibold md:text-xl text-sm sx:text-base sm:text-lg mb-[10px] overflow-hidden text-ellipsis whitespace-nowrap">Материалы</div>
-          <Link to="#" className="p-0 font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg text-[rgb(9,34,253)]">
+          <Link id="mat_1" to="#" className="p-0 font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg text-[rgb(9,34,253)]">
             <div className="mx-[5px] overflow-hidden text-ellipsis whitespace-nowrap">
               Материал№1
             </div>
@@ -55,11 +55,11 @@ export const Event: FC = () => {
         <div className="flex flex-col sm:flex-row justify-between w-full ">
           <div className="w-full sm:w-1/2 flex flex-col gap-[10px] mb-[10px]">
             <div className="  font-semibold md:text-xl text-sm sx:text-base sm:text-lg mb-[10px] overflow-hidden text-ellipsis whitespace-nowrap ">Организаторы</div>
-            <CardSponOrg />
+            <CardSponOrg id="org_1" />
           </div>
           <div className="w-full sm:w-1/2 flex flex-col gap-[10px]">
             <div className="  font-semibold md:text-xl text-sm sx:text-base sm:text-lg mb-[10px] overflow-hidden text-ellipsis whitespace-nowrap">Спонсоры</div>
-            <CardSponOrg />
+            <CardSponOrg id="spon_1" />
           </div>
 
         </div>

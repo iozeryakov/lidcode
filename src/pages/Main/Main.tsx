@@ -6,7 +6,7 @@ export const Main: FC = () => {
 
   return (
     <MainLayout>
-      <Card />
+      <Card id="1" />
     </MainLayout>
   );
 };

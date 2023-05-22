@@ -130,6 +130,7 @@ export const FormParticipants: FC<IInputTeam> = ({ register, errors, unregister,
           {participants.filter((i) => i.main).length < max && (
             <button
               type="button"
+              id="add_main"
               className=" flex justify-center items-center  h-min w-min shadow-[0px_0px_8px_rgba(215,218,224,1)] rounded mb-5 cursor-pointer"
               onClick={() => {
                 addData("main");
@@ -143,6 +144,7 @@ export const FormParticipants: FC<IInputTeam> = ({ register, errors, unregister,
             participants.filter((i) => i.coach || i.contact).length < 2 && (
               <button
                 type="button"
+                id="add_reserve"
                 className=" flex justify-center items-center  h-min w-min shadow-[0px_0px_8px_rgba(215,218,224,1)] rounded mb-5 cursor-pointer"
                 onClick={() => {
                   addData("reserve");
