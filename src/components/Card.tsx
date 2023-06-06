@@ -28,7 +28,7 @@ export const Card: FC<IInfoCard> = ({ id, name, statusNow, minNumberOfParticipan
                         </div>
                     </Link>
                     <p className=" mx-[5px] font-semibold font-roboto text-[rgba(75,85,99,0.4)] text-xs md:text-sm lg:text-base  overflow-hidden text-ellipsis whitespace-nowrap ">
-                        {minNumberOfParticipants === 1 && maxNumberOfParticipants === 1 ? "Одиночное участие" : "Командноеное участие"}
+                        {minNumberOfParticipants === 1 && maxNumberOfParticipants === 1 ? "Одиночное участие" : "Командное участие"}
                     </p>
                     <p className=" mx-[5px] font-semibold font-roboto text-[rgba(75,85,99,0.4)] text-xs md:text-sm  lg:text-base overflow-hidden text-ellipsis whitespace-nowrap ">
                         {statusNow}

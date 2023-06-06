@@ -11,6 +11,7 @@ export interface IInfoHeader {
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   admin?: boolean;
+  isBasic?: boolean;
 }
 export interface IInfoPanel {
   selectAll: boolean;

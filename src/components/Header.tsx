@@ -4,7 +4,8 @@ import { IInfoHeader } from "../types/IInfo";
 import { Burger } from "./Burger";
 import { User } from "./User";
 import { ADMIN_EVENT_ROUTER } from "../utils/consts";
-export const Header: FC<IInfoHeader> = ({ active, setActive, admin }: IInfoHeader) => {
+export const Header: FC<IInfoHeader> = ({ active, setActive, admin, isBasic = false }: IInfoHeader) => {
+
   return (
     <header className=" flex relative shadow-xl  shadow-[rgba(75,85,99,0.2)] justify-center z-10">
       <nav className={admin ? "flex justify-between items-center w-full h-16 px-[15px] sx:px-[30px]" : "flex justify-between items-center w-full max-w-5xl h-16  mx-[10px]"}>
@@ -30,9 +31,9 @@ export const Header: FC<IInfoHeader> = ({ active, setActive, admin }: IInfoHeade
         </Link>
         {admin ?
           <>
-            <div className="md:hidden">
-              <Burger active={active} setActive={setActive} />
-            </div>
+
+            <Burger active={active} setActive={setActive} />
+
 
             <div className="hidden md:block">
               <User />
@@ -40,8 +41,8 @@ export const Header: FC<IInfoHeader> = ({ active, setActive, admin }: IInfoHeade
           </>
           :
           <>
-            <Link id="arxiv" to={"../basic"} className=" hidden sm:block font-semibold text-sx whitespace-nowrap  cursor-pointer" >Архив соревнований</Link>
-            <div className="sm:hidden"><Burger active={active} setActive={setActive} /></div>
+            <Link id="arxiv" to={isBasic ? "../" : "../basic"} className=" hidden sm:block font-semibold text-sx whitespace-nowrap  cursor-pointer" >{isBasic ? "Соревнования" : "Архив соревнований"}</Link>
+            <Burger active={active} setActive={setActive} />
           </>}
 
       </nav>

@@ -20,6 +20,7 @@ export const AdminLayout: FC<IAdminLayout> = observer(({
 }: IAdminLayout) => {
   const { user } = useContext(Context)
   const { width } = useWindowDimensions()
+
   const buttonRef = useRef(null)
   const [active, setActive] = useState(false);
   const [activeFilter, setActiveFilter] = useState(false);

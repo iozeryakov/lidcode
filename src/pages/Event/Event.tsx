@@ -42,7 +42,7 @@ export const Event: FC = () => {
               />
             </div>
             <div className="flex flex-col w-full justify-center items-center gap-[5px] overflow-hidden">
-              <div className="mx-[5px] font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg text-center">  {data.EventData[0].minNumberOfParticipants === 1 && data.EventData[0].maxNumberOfParticipants === 1 ? "Одиночное участие" : "Командноеное участие"}</div>
+              <div className="mx-[5px] font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg text-center">  {data.EventData[0].minNumberOfParticipants === 1 && data.EventData[0].maxNumberOfParticipants === 1 ? "Одиночное участие" : "Командное участие"}</div>
               <div className="mx-[5px] font-roboto font-normal md:text-xl text-sm sx:text-base sm:text-lg text-center">{data.EventData[0].statusNow === "Ожидание регистрации" ? "Регистрация откроется " + data.EventData[0].dateRegister.split("T")[0].split('-').reverse().join("-") + " в " + data.EventData[0].dateRegister.split("T")[1] :
                 data.EventData[0].statusNow === "Регистрация открыта" ? "Регистрация закроется " + data.EventData[0].dateCloseRegister.split("T")[0].split('-').reverse().join("-") + " в " + data.EventData[0].dateCloseRegister.split("T")[1] :
                   data.EventData[0].statusNow === "Регистрация закрыта" ? "Старт соревнований " + data.EventData[0].dateStart.split("T")[0].split('-').reverse().join("-") + " в " + data.EventData[0].dateStart.split("T")[1] :
