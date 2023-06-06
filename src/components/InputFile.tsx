@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
 import { IInputFile } from "../types/IInputs";
 import { dragLeaveHandler, dragStartHandler } from "../utils/dragAndDrop";
+import { Link } from "react-router-dom";
 
-export const InputFile: FC<IInputFile> = ({ name, register, title, watch, setValue }: IInputFile) => {
+export const InputFile: FC<IInputFile> = ({ name, register, title, watch, setValue, fileLink, setFileLink }: IInputFile) => {
   const file = watch(title, false)
   const [drag, setDrag] = useState(false)
 
@@ -12,9 +13,20 @@ export const InputFile: FC<IInputFile> = ({ name, register, title, watch, setVal
     setDrag(false)
   }
 
+
   return (
     <div className="flex flex-col pb-[5px]">
       <label className="standart_text font-normal font-roboto">{name}</label>
+      {fileLink && fileLink.length !== 0 && file.length === 0 &&
+        <div className="flex flex-row gap-5 items-center">
+          <Link to={fileLink} className="ml-2 cursor-pointer text-blue-600 standart_text font-normal font-roboto">Скачать файл</Link>
+          <div><img
+            className=" cursor-pointer w-[25px] h-[25px] m-[5px] top-0 right-0 hover:w-[27px] hover:h-[27px] hover:m-[4px]"
+            src="/img/close.svg"
+            alt="close"
+            onClick={() => { setFileLink && setFileLink("") }}
+          /></div>
+        </div>}
       <div
         onDragStart={(e) => dragStartHandler(e, setDrag)}
         onDragLeave={(e) => dragLeaveHandler(e, setDrag)}

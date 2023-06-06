@@ -1,3 +1,5 @@
+import { AdminAdmins } from "./pages/Admin/AdminAdmins/AdminAdmins";
+import { AdminAdminsNew } from "./pages/Admin/AdminAdminsNew/AdminAdminsNew";
 import { AdminEvent } from "./pages/Admin/AdminEvent/AdminEvent";
 import { AdminEventNew } from "./pages/Admin/AdminEventNew/AdminEventNew";
 import { AdminEventOne } from "./pages/Admin/AdminEventOne/AdminEventOne";
@@ -36,11 +38,18 @@ import {
   ADMIN_EVENT_NEW_ROUTER,
   ADMIN_MATERIAL_NEW_ROUTER,
   RULES_ROUTER,
+  MAIN_ROUTER_BASIC,
+  ADMIN_ADMINS_ROUTER,
+  ADMIN_ADMINS_NEW_ROUTER
 } from "./utils/consts";
 
 export const publicRoutes = [
   {
     path: MAIN_ROUTER,
+    Component: <Main />,
+  },
+  {
+    path: MAIN_ROUTER_BASIC,
     Component: <Main />,
   },
   {
@@ -66,6 +75,14 @@ export const publicRoutes = [
   {
     path: ADMIN_EVENT_ROUTER,
     Component: <AdminEvent />,
+  },
+  {
+    path: ADMIN_ADMINS_ROUTER,
+    Component: <AdminAdmins />
+  },
+  {
+    path: ADMIN_ADMINS_NEW_ROUTER,
+    Component: <AdminAdminsNew />
   },
   {
     path: ADMIN_EVENT_ROUTER + "/:id",

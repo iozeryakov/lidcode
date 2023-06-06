@@ -2,18 +2,31 @@ import { FC, useEffect, useState } from "react";
 import { IInputImg } from "../types/IInputs";
 import { dragLeaveHandler, dragStartHandler } from "../utils/dragAndDrop";
 
-export const InputImg: FC<IInputImg> = ({ name, register, watch, title, setValue }: IInputImg) => {
+export const InputImg: FC<IInputImg> = ({ name, register, watch, title, setValue, imgLink, setImgLink, setBase64 }: IInputImg) => {
   const image = watch(title, false)
   const [drag, setDrag] = useState(false)
   const [error, setError] = useState("")
   const [imageURL, setImageURL] = useState<string>("");
 
+  const setBase = (str: string) => {
+    if (title === "imgD") {
+      setBase64(prev => ({ ...prev, imgD: str }))
+    }
+    if (title === "imgV") {
+      setBase64(prev => ({ ...prev, imgV: str }))
+    }
+    if (title === "imgH") {
+      setBase64(prev => ({ ...prev, imgH: str }))
+    }
 
-  const onDropHandler=(e: React.DragEvent<HTMLDivElement>)=> {
+  }
+
+  const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     setError("");
     e.preventDefault()
     if (e.dataTransfer.files[0].type.includes("image")) { setValue(title, e.dataTransfer.files) }
     else {
+      setBase("")
       setImageURL("")
       setValue(title, {})
       setError("Фаил не является изображением!");
@@ -28,6 +41,7 @@ export const InputImg: FC<IInputImg> = ({ name, register, watch, title, setValue
         fileReader.onloadend = () => {
           const imageNew = new Image();
           imageNew.onload = () => {
+            setBase(fileReader.result ? fileReader.result.toString() : "")
             setImageURL(imageNew.src);
             if (imageNew.width === imageNew.height && title === "imgD") {
               setError("");
@@ -46,12 +60,17 @@ export const InputImg: FC<IInputImg> = ({ name, register, watch, title, setValue
         fileReader.readAsDataURL(image[0]);
       } else {
         setImageURL("")
+        setBase("")
         setValue(title, {})
         setError("Фаил не является изображением!");
 
       }
 
-    } else { setImageURL("") }
+    } else {
+      setImageURL("")
+      setBase("")
+    }
+    // eslint-disable-next-line 
   }, [image, title])
 
 
@@ -107,11 +126,27 @@ export const InputImg: FC<IInputImg> = ({ name, register, watch, title, setValue
                 setValue(title, {})
                 setError("")
                 setImageURL("");
+                setBase("")
               }}
             />
           </div>
         </>
       )}
+      {imgLink && !imageURL && <>
+        <div className=" max-w-min max-h-min mt-[5px]  shadow-[0px_0px_8px_rgba(215,218,224,1)] relative">
+          <img
+            src={imgLink}
+            alt="logo"
+            className="max-w-[250px] max-h-[250px]"
+          />
+          <img
+            className=" cursor-pointer w-[25px] h-[25px] m-[5px] absolute z-50 top-0 right-0 hover:w-[27px] hover:h-[27px] hover:m-[4px]"
+            src="/img/close.svg"
+            alt="close"
+            onClick={() => setImgLink && setImgLink("")}
+          />
+        </div>
+      </>}
       {error && (
         <label className="error_valid">{error}</label>
       )}

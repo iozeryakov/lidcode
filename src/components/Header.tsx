@@ -17,11 +17,15 @@ export const Header: FC<IInfoHeader> = ({ active, setActive, admin }: IInfoHeade
             src="/img/logoadm.svg"
             alt="Admin"
             className="max-w-[196px] max-h-[30px] sm:max-w-[255px] sm:max-h-[39px]"
-          /> : <img
-            src="/img/logo.svg"
-            alt="Admin"
-            className="max-w-[163px] max-h-[25px] sm:max-w-[255px] sm:max-h-[39px]"
-          />}
+          /> :
+            <img
+              src="/img/logo.svg"
+              alt="Main"
+              className="max-w-[163px] max-h-[25px] sm:max-w-[255px]
+               sm:max-h-[39px]"
+            />
+
+          }
 
         </Link>
         {admin ?
@@ -36,7 +40,7 @@ export const Header: FC<IInfoHeader> = ({ active, setActive, admin }: IInfoHeade
           </>
           :
           <>
-            <Link id="arxiv" to={"../"} className=" hidden sm:block font-semibold text-sx whitespace-nowrap  cursor-pointer" >Архив соревнований</Link>
+            <Link id="arxiv" to={"../basic"} className=" hidden sm:block font-semibold text-sx whitespace-nowrap  cursor-pointer" >Архив соревнований</Link>
             <div className="sm:hidden"><Burger active={active} setActive={setActive} /></div>
           </>}
 

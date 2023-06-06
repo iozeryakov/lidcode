@@ -3,13 +3,30 @@ import { BrowserRouter } from "react-router-dom";
 import { AppRouter } from "./components/AppRouter";
 import { observer } from "mobx-react-lite";
 import { Context } from ".";
+import useAxios from "./hooks/useAxios";
+import { $authHost } from "./api/axiosApi";
 
 export const App: FC = observer(() => {
   const { user } = useContext(Context)
+  const [response, error, loading, axiosFetch] = useAxios();
   useEffect(() => {
-    user.setIsAuth(false)
-    user.setUser({ login: "смотри это ты", id: 1 })
-  })
+    axiosFetch({
+      axiosInstance: $authHost,
+      method: "get",
+      url: "api/v1/user_login/",
+    });
+  }, [])
+  useEffect(() => {
+    user.setLoading(loading)
+  }, [loading])
+  useEffect(() => {
+    if (response && response.token) {
+      user.newToken(response.token)
+    }
+    else if (response || error) {
+      user.newToken("")
+    }
+  }, [response, error])
   return (
     <BrowserRouter>
       <AppRouter />

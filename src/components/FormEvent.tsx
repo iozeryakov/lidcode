@@ -10,18 +10,19 @@ import { StatusList } from "../utils/consts";
 
 
 
-export const FormEvent: FC<IInputEvent> = ({ register, watch, setValue, errors, active, setActive, children }: IInputEvent) => {
+export const FormEvent: FC<IInputEvent> = ({ register, watch, setValue, errors, active, setActive, children, setBase64, imageDef, imageHor, imageVer, setImageDef, setImageHor, setImageVer }: IInputEvent) => {
+
 
     return (
         <>
             <InputText register={register} title="title" required="Пожалуйста, укажите название" maxLength={{ value: 100, message: "Превышенно количество букв" }} error={errors.title} name="Название" placeholder="Название соревнования*" />
             <DropdownButton id="status" name="Статус" list={StatusList} sel={StatusList.filter((i) => i.id === active).length ? StatusList.filter((i) => i.id === active)[0].name : ""} setSel={setActive} />
             <InputNumber register={register} title="maxTeam" required="Пожалуйста, укажите количество" min={{ value: 1, message: "Маленькое число" }} max={{ value: 1000, message: "Большое число" }} error={errors.maxTeam} name="Максимальное количество команд" />
-            <InputNumber register={register} title="minTeam" required="Пожалуйста, укажите количество" min={{ value: 1, message: "Маленькое число" }} max={{ value: 1000, message: "Большое число" }} error={errors.minTeam} name="Минимальное количество участников в команде" />
+            <InputNumber register={register} title="minParticipant" required="Пожалуйста, укажите количество" min={{ value: 1, message: "Маленькое число" }} max={{ value: 1000, message: "Большое число" }} error={errors.minParticipant} name="Минимальное количество участников в команде" />
             <InputNumber register={register} title="maxParticipant" required="Пожалуйста, укажите количество" min={{ value: 1, message: "Маленькое число" }} max={{ value: 1000, message: "Большое число" }} error={errors.maxParticipant} name="Максимальное количество участников в команде" />
-            <InputImg register={register} title="imgD" watch={watch} setValue={setValue} name="Логотип по умолчанию" />
-            <InputImg register={register} title="imgV" watch={watch} setValue={setValue} name="Вертикальный логотип" />
-            <InputImg register={register} title="imgH" watch={watch} setValue={setValue} name="Горизонтальный логотип" />
+            <InputImg setBase64={setBase64} imgLink={imageDef} setImgLink={setImageDef} register={register} title="imgD" watch={watch} setValue={setValue} name="Логотип по умолчанию" />
+            <InputImg setBase64={setBase64} imgLink={imageVer} setImgLink={setImageVer} register={register} title="imgV" watch={watch} setValue={setValue} name="Вертикальный логотип" />
+            <InputImg setBase64={setBase64} imgLink={imageHor} setImgLink={setImageHor} register={register} title="imgH" watch={watch} setValue={setValue} name="Горизонтальный логотип" />
             <InputTextarea register={register} title="description" maxLength={{ value: 1000, message: "Превышенно количество букв" }} error={errors.description} name="Описание" placeholder="Описание соревнования" />
             <InputTextarea register={register} title="rules" maxLength={{ value: 1000, message: "Превышенно количество букв" }} error={errors.rules} name="Правила" placeholder="Правила соревнования" />
             {children}

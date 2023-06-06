@@ -6,10 +6,10 @@
   html {
     font-family: Montserrat, sans-serif;
   }
-  .button{
-    @apply overflow-hidden text-ellipsis shadow-[0px_0px_8px_rgb(215,218,224)]  py-[5px] m-[2px] px-[10px] hover:m-0  hover:py-[7px] hover:px-3 text-center w-full text-sm sx:text-base sm:text-lg   rounded font-roboto font-semibold md:text-xl cursor-pointer ;
+  .button {
+    @apply overflow-hidden text-ellipsis shadow-[0px_0px_8px_rgb(215,218,224)]  py-[5px] m-[2px] px-[10px] hover:m-0  hover:py-[7px] hover:px-3 text-center w-full text-sm sx:text-base sm:text-lg   rounded font-roboto font-semibold md:text-xl cursor-pointer;
   }
-  .error_valid{
+  .error_valid {
     @apply standart_text font-medium font-roboto sm:text-sm text-xs text-red-600;
   }
   .standart_text {
@@ -30,6 +30,9 @@
     @apply transition-all ease-in duration-100 bg-black absolute w-full h-[3px] right-0 top-[10px] rounded-xl;
   }
 }
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -40,7 +43,7 @@
   background-color: rgba(75, 85, 99, 0.5);
   border-radius: 10px;
 }
-.dropdown_button::after{
+.dropdown_button::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -50,24 +53,24 @@
   width: 0;
   height: 0;
   border-width: 11px 6px 0 6px;
-  border-color:  #D7DAE0 transparent transparent transparent;
+  border-color: #d7dae0 transparent transparent transparent;
   border-style: solid;
   pointer-events: none;
 }
-.dropdown_button-top::after{
-  border-width: 0 6px 11px  6px;
-  border-color: transparent transparent #D7DAE0 transparent  ;
+.dropdown_button-top::after {
+  border-width: 0 6px 11px 6px;
+  border-color: transparent transparent #d7dae0 transparent;
 }
-.dropdown_button-topBlack::after{
+.dropdown_button-topBlack::after {
   top: 60%;
   right: 5px;
-  border-width: 0 6px 11px  6px;
-  border-color: transparent transparent black transparent  ;
+  border-width: 0 6px 11px 6px;
+  border-color: transparent transparent black transparent;
 }
-.dropdown_button-black:after{
+.dropdown_button-black:after {
   top: 60%;
   right: 5px;
-  border-color: black transparent transparent  transparent  ;
+  border-color: black transparent transparent transparent;
 }
 .truncate-text:after {
   content: "";

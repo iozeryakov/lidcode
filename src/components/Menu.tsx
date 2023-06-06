@@ -1,6 +1,7 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import {
+  ADMIN_ADMINS_ROUTER,
   ADMIN_EVENT_ROUTER,
   ADMIN_MATERIAL_ROUTER,
   ADMIN_ORGANIZER_ROUTER,
@@ -9,8 +10,10 @@ import {
 } from "../utils/consts";
 import { ItemMenu } from "./ItemMenu";
 import { User } from "./User";
+import { Context } from "..";
 
 export const Menu: FC = () => {
+  const { user } = useContext(Context)
   const { pathname } = useLocation();
   return (
     <ul className="block min-w-[250px] w-full bg-white md:bg-[#F3F4F6] md:max-w-[250px] md:mt-[30px] z-10 absolute md:static">
@@ -53,6 +56,16 @@ export const Menu: FC = () => {
         to={"../" + ADMIN_SPONSOR_ROUTER}
         active={pathname.includes("sponsor") ? true : false}
       />
+      {user.access !== "0" && <div className=" py-3">
+        <ItemMenu
+          id="admins"
+          src="/img/admin.svg"
+          alt="Админ - ры"
+          to={"../" + ADMIN_ADMINS_ROUTER}
+          active={pathname.includes("admins") ? true : false}
+        /></div>}
+
+
     </ul>
   );
 };

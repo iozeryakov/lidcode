@@ -12,7 +12,11 @@ export const FormParticipant: FC<IInputParticipant> = ({
   const coach = watch("participant[" + (number - 1) + "].coach")
   const contact = watch("participant[" + (number - 1) + "].contact")
 
-  useEffect(() => { setData({ ...info, contact: contact, coach: coach }) }, [coach, contact])
+  useEffect(() => {
+    setData({ ...info, contact: contact, coach: coach })
+    // eslint-disable-next-line 
+  }, [coach, contact])
+
 
   return (
     <>
@@ -23,7 +27,7 @@ export const FormParticipant: FC<IInputParticipant> = ({
         {removeData && (
           <img
             src="/img/close.svg"
-            id={"close_" + number}
+            id={"close_" + (number - 1)}
             alt="close"
             className=" cursor-pointer w-[25px] h-[25px] m-[5px]  hover:w-[27px] hover:h-[27px] hover:m-[4px]"
             onClick={() => removeData(info.id)}
@@ -83,12 +87,12 @@ export const FormParticipant: FC<IInputParticipant> = ({
       </div>
 
       <div className=" flex flex-col pl-[10px] pb-5">
-        <InputText register={register} required="Пожалуйста, укажите ФИО" maxLength={{ value: 100, message: "Превышенно количество букв" }} title={"participant[" + (number - 1) + "].fullName"} error={errors.participant && errors.participant[number - 1]?.fullName} name="ФИО" placeholder="ФИО*" />
-        <InputText register={register} required="Пожалуйста, укажите email" pattern={{ value: REGEXP_EMAIL, message: "Вы уверены, что это email?" }} maxLength={{ value: 100, message: "Превышенно количество букв" }} title={"participant[" + (number - 1) + "].email"} error={errors.participant && errors.participant[number - 1]?.email} name="Email" placeholder="Email*" />
-        <InputText register={register} required="Пожалуйста, укажите телефон" pattern={{ value: REGEXP_PHONE, message: "Вы уверены, что это телефон?" }} maxLength={{ value: 60, message: "Превышенно количество букв" }} title={"participant[" + (number - 1) + "].phone"} error={errors.participant && errors.participant[number - 1]?.phone} name="Телефон" placeholder="Телефон*" />
+        <InputText register={register} required="Пожалуйста, укажите ФИО" maxLength={{ value: 100, message: "Превышенно количество букв" }} title={"participant[" + (number - 1) + "].name"} error={errors.participant && errors.participant[number - 1]?.name} name="ФИО" placeholder="ФИО*" />
+        <InputText register={register} required="Пожалуйста, укажите email" pattern={{ value: REGEXP_EMAIL, message: "Вы уверены, что это email?" }} maxLength={{ value: 100, message: "Превышенно количество букв" }} title={"participant[" + (number - 1) + "].emailAdress"} error={errors.participant && errors.participant[number - 1]?.emailAdress} name="Email" placeholder="Email*" />
+        <InputText register={register} required="Пожалуйста, укажите телефон" pattern={{ value: REGEXP_PHONE, message: "Вы уверены, что это телефон?" }} maxLength={{ value: 60, message: "Превышенно количество букв" }} title={"participant[" + (number - 1) + "].phoneNumbers"} error={errors.participant && errors.participant[number - 1]?.phoneNumbers} name="Телефон" placeholder="Телефон*" />
         <InputText register={register} required="Пожалуйста, укажите организацию" maxLength={{ value: 100, message: "Превышенно количество букв" }} title={"participant[" + (number - 1) + "].organization"} error={errors.participant && errors.participant[number - 1]?.organization} name="Организация" placeholder="Организация*" />
-        <InputText register={register} title={"participant[" + (number - 1) + "].faculty"} maxLength={{ value: 100, message: "Превышенно количество букв" }} error={errors.participant && errors.participant[number - 1]?.faculty} name="Факультет" placeholder="Факультет" />
-        <InputText register={register} title={"participant[" + (number - 1) + "].course"} maxLength={{ value: 100, message: "Превышенно количество букв" }} error={errors.participant && errors.participant[number - 1]?.course} name="Курс" placeholder="Курс" />
+        <InputText register={register} title={"participant[" + (number - 1) + "].universityFaculty"} maxLength={{ value: 100, message: "Превышенно количество букв" }} error={errors.participant && errors.participant[number - 1]?.universityFaculty} name="Факультет" placeholder="Факультет" />
+        <InputText register={register} title={"participant[" + (number - 1) + "].universityCourse"} maxLength={{ value: 100, message: "Превышенно количество букв" }} error={errors.participant && errors.participant[number - 1]?.universityCourse} name="Курс" placeholder="Курс" />
       </div>
     </>
   );
