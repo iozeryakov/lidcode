@@ -32,12 +32,12 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
     });
   }
 
-  const DeleteRemove = (id: { id: string; }[]) => {
+  const DeleteRemove = (id: string) => {
     axiosFetchRemove({
       axiosInstance: $authHost,
       method: "delete",
       url: "api/v1/" + name + "/",
-      requestConfig: { data: { Items: id } }
+      requestConfig: { params: { id: id } }
     });
   }
 
@@ -59,7 +59,7 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
     } else {
       if (contentAll.filter(i => i.checked).length) {
         setContentAll([])
-        DeleteRemove(contentAll.filter(i => i.checked).map(i => ({ id: i.id })))
+        DeleteRemove(contentAll.filter(i => i.checked).map(i => (i.id)).join(", "))
       }
     }
   }
