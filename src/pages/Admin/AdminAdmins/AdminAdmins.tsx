@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 export const AdminAdmins: FC = observer(() => {
     const { user } = useContext(Context)
     return (
-        <AdminLayout name={user.access !== "0" ? "Админимстраторы" : "Доступ закрыт"} >
+        <AdminLayout name={user.access !== "0" ? "Администраторы" : "Доступ закрыт"} >
             {user.access !== "0" && <ContentAll name="users" />}
         </AdminLayout >
     );

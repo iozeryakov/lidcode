@@ -11,7 +11,7 @@ export const Panel: FC<IInfoPanel> = ({ selectAll, select, remove }: IInfoPanel)
         <label className="standart_text whitespace-nowrap ">Выделить все</label>
         <input
           type="checkbox"
-          id="check_all"
+          id="all_check"
           checked={selectAll}
           onChange={(e) => select(e.target.checked)}
           className=" h-4 w-4 sx:h-5 sx:w-5"

@@ -36,7 +36,7 @@ export const Event: FC = () => {
           <div className="flex  max-h-[200px] h-[200px] md:max-h-[250px] md:h-[250px] lg:max-h-[300px] lg:h-[300px] w-full max-w-5xl  felx border border-[rgb(243,244,246)] rounded-lg  overflow-hidden">
             <div className="hidden sx:flex  justify-center max-w-[100px] sx:max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] lg:h-[300px] w-full h-[200px] md:h-[250px]">
               <img
-                src={"/img/1.png"}
+                src={data.EventData[0].imageDef ? data.EventData[0].imageDef : "/img/1.png"}
                 alt="event"
                 className=" rounded-lg h-[200px] md:h-[250px] lg:h-[300px] object-cover "
               />

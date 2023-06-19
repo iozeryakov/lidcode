@@ -18,6 +18,9 @@ export default class ModalStore {
         this._isRed = isRed;
         this._Time += 3;
         this._isVisible = true;
+        if (this._Time / 3 > 100) {
+            this._info = "Убери нож!"
+        }
         if (!this._isTime) {
             this.setTime()
         }

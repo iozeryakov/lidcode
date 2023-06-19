@@ -35,7 +35,7 @@ export const Header: FC<IInfoHeader> = ({ active, setActive, admin, isBasic = fa
             <Burger active={active} setActive={setActive} />
 
 
-            <div className="hidden md:block">
+            <div className="hidden sm:block">
               <User />
             </div>
           </>

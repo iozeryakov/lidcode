@@ -6,13 +6,13 @@ export const User: FC = observer(() => {
 
 
   return (
-    <div className="justify-between items-center flex h-10 sm:h-[50px] px-[15px] sx:px-[30px] md:px-0 border-[rgba(75,85,99,0.2)]  border-b-2 border-t-2 md:border-0 overflow-hidden">
-      <div className="flex flex-row items-center md:pr-[30px] overflow-hidden">
-        <div className="block w-[30px] h-[30px] md:hidden min-w-[30px]">
+    <div className="justify-between items-center flex h-10 sm:h-[50px] px-[15px] sx:px-[30px] sm:px-0 border-[rgba(75,85,99,0.2)]  border-b-2 border-t-2 sm:border-0 overflow-hidden">
+      <div className="flex flex-row items-center sm:pr-[30px] overflow-hidden">
+        <div className="block w-[30px] h-[30px] sm:hidden min-w-[30px]">
           <img className="w-[30px] h-[30px]" src="/img/user.svg" alt="Logout" />
         </div>
 
-        <label id="login" className="pl-[15px] sx:pl-[30px] md:p-0 text-lg sm:text-xl font-semibold max-w-sm overflow-hidden text-ellipsis whitespace-nowrap">
+        <label id="login" className="pl-[15px] sx:pl-[30px] sm:p-0 text-lg sm:text-xl font-semibold max-w-sm overflow-hidden text-ellipsis whitespace-nowrap">
           {user.user}
         </label>
       </div>
