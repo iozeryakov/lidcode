@@ -12,6 +12,10 @@ import { EVENT_ROUTER, REGISTRATION_ROUTER } from "../../utils/consts";
 import { Context } from "../..";
 import { addData } from "../../utils/addData";
 
+
+/**
+ * Компонент, отображающий страницу с регистрацией команды.
+ */
 export const RegistrationTm: FC = () => {
   const navigate = useNavigate()
   const { register, handleSubmit, unregister, watch, formState: { errors } } = useForm<IFormTeam>({ mode: "onChange" });
@@ -22,6 +26,11 @@ export const RegistrationTm: FC = () => {
   const [dataR, errorData, loadingData, axiosFetchData] = useAxios();
   const [putResponse, putError, putLoading, putAxiosFetch] = useAxios()
 
+
+  /**
+   * Обработчик отправки формы регистрации
+   * @param data Данные формы регистрации
+   */
   const onSubmit: SubmitHandler<IFormTeam> = data => {
     if (check && data.participant.filter(i => i.main).length < Number(dataR?.EventData[0].minNumberOfParticipants)) {
       modal.setIsVisible("Mинимум " + dataR?.EventData[0].minNumberOfParticipants + " участник/а в основном составе!", true)
@@ -45,7 +54,11 @@ export const RegistrationTm: FC = () => {
     }
 
   };
-
+  /**
+   * Отправляет данные формы регистрации на сервер
+   * @param name ФИО
+   * @param TeamList Список участников команды
+   */
   const putData = (
     name: string,
     TeamList: IFormParticipant[]) => {
@@ -57,6 +70,9 @@ export const RegistrationTm: FC = () => {
     });
   }
 
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetchData({
       axiosInstance: axios,
@@ -70,21 +86,22 @@ export const RegistrationTm: FC = () => {
     getData();
     // eslint-disable-next-line 
   }, [])
+
   useEffect(() => {
     if (dataR?.EventData && dataR.EventData[0].minNumberOfParticipants > 1) {
       setCheck(true)
       addData("main", setParticipants)
     }
   }, [dataR])
+
   useEffect(() => {
     if (putResponse?.TeamListParticipantsData?.length) {
-
-
+      // Обработка успешной отправки данных
       modal.setIsVisible("Заявка отправлена", false)
       navigate("../" + EVENT_ROUTER + "/" + id)
     } else if (putResponse?.EventData?.length) {
+      // Обработка ошибки отправки данных
       modal.setIsVisible("Заявка не отправлена, максимальное количество команд!", true)
-
     } else {
       putError.length && modal.setIsVisible("Ошибка отправки!", true)
     }

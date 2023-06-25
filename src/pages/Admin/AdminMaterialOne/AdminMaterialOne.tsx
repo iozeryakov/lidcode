@@ -8,6 +8,12 @@ import { $authHost } from "../../../api/axiosApi"
 import useAxios from "../../../hooks/useAxios";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
+
+/**
+ * Компонент, отображающий страницу для изменения материала.
+ * 
+ * @returns {JSX.Element} - Компонент, отображающий страницу для изменения материала.
+ */
 export const AdminMaterialOne: FC = observer(() => {
   const { id } = useParams()
   const { user, modal } = useContext(Context)
@@ -18,6 +24,10 @@ export const AdminMaterialOne: FC = observer(() => {
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<IFormMaterial>({ mode: "onChange" });
   const [file, setFile] = useState("")
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormMaterial> = data => {
     if ((file.length !== 0 || data.file.length !== 0) && data.link.length !== 0) {
       modal.setIsVisible("Должно быть указано или ссылка или файл!", true)
@@ -37,6 +47,9 @@ export const AdminMaterialOne: FC = observer(() => {
 
   };
 
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -46,6 +59,12 @@ export const AdminMaterialOne: FC = observer(() => {
     });
   }
 
+  /**
+   * Отправляет данные формы на сервер
+   * @param name Название 
+   * @param link Ссылка на материал
+   * @param file Файл на материал
+   */
   const putData = (link: string, name: string, file?: string) => {
     putAxiosFetch({
       axiosInstance: $authHost,

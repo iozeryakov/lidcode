@@ -9,6 +9,17 @@ import useAxios from "../hooks/useAxios";
 import { $authHost } from "../api/axiosApi"
 import { Loading } from "./Loading";
 
+/**
+ * Компонент для отображения списка содержимого.
+ *
+ * @component
+ * 
+ * @param {IInfoContentAll} props - Свойства компонента списка содержимого.
+ * @param {string} props.name - Название содержимого.
+ * @param {string | undefined} props.filter - Значение фильтра содержимого.
+ * @param {boolean | undefined} props.loadingF - Флаг загрузки содержимого.
+ * @returns {JSX.Element} - Компонент для отображения списка содержимого.
+ */
 export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loadingF }: IInfoContentAll) => {
   const { user, modal } = useContext(Context)
   const [selectAll, setSelectAll] = useState(false);
@@ -19,9 +30,10 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
   const [remove, errorRemove, loadingRemove, axiosFetchRemove] = useAxios();
 
   const isVisible = contentAll.length !== 0 && !loadingData && !loadingRemove && !loadingF
-
+  /**
+   * Получает данные списка из API.
+   */
   const getData = () => {
-
     axiosFetchData({
       axiosInstance: $authHost,
       method: "get",
@@ -31,7 +43,10 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
       }
     });
   }
-
+  /**
+   * Удаляет элементы списка по их идентификаторам.
+   * @param {string} id - Идентификатор элемента.
+   */
   const DeleteRemove = (id: string) => {
     axiosFetchRemove({
       axiosInstance: $authHost,
@@ -40,7 +55,10 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
       requestConfig: { params: { id: id } }
     });
   }
-
+  /**
+   * Выбирает или снимает выбор со всех элементов списка.
+   * @param {boolean} checked - Флаг выбора.
+   */
   const select = (checked: boolean) => {
     if (checked === true) {
       setContentAll((prev) => prev.map((i) => ({ ...i, checked: true })));
@@ -51,6 +69,9 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
     }
   }
 
+  /**
+   * Удаляет выбранные элементы списка.
+   */
   const removeFunction = () => {
     if (user.access !== "2") {
       modal.setIsVisible("Нет доступа!", true)
@@ -65,29 +86,31 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
   }
 
   useEffect(() => {
-
+    // Обработка удаления элементов
     if (remove?.token && !loadingRemove && errorRemove.length === 0) {
       user.newToken(remove.token)
       modal.setIsVisible("Успешно удалено", false)
     } else if (remove?.status && !loadingRemove && errorRemove.length === 0) {
       user.newToken("")
     } else { errorRemove.length && modal.setIsVisible("Ошибка удаления", true) }
-
     // eslint-disable-next-line 
   }, [remove, errorRemove, loadingRemove])
 
   useEffect(() => {
+    // Получение данных при изменении параметров
     if (user.isAuth && !loadingRemove) {
       getData();
     }
     // eslint-disable-next-line 
   }, [user.isAuth, loadingRemove, page, loadingF, filter])
+
   useEffect(() => {
     setContentAll([]);
     setCountList([])
   }, [page, data])
 
   useEffect(() => {
+    // Обновление списка элементов и количества страниц
     if (data?.token) {
       user.newToken(data.token)
       if (data?.Items) {
@@ -103,11 +126,11 @@ export const ContentAll: FC<IInfoContentAll> = observer(({ name, filter, loading
     } else if (data?.status) {
       user.newToken("")
     }
-
     // eslint-disable-next-line 
   }, [data])
 
   useEffect(() => {
+    // Обновление состояния выбора всех элементов
     if (
       contentAll.filter((i) => i.checked === true).length === contentAll.length
     ) {

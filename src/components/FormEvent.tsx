@@ -9,7 +9,28 @@ import { IInputEvent } from "../types/IInputs";
 import { StatusList } from "../utils/consts";
 
 
-
+/**
+ * Компонент формы для ввода данных о соревновании.
+ *
+ * @component
+ * 
+ * @param {IInputEvent} props - Свойства компонента.
+ * @param {UseFormRegister<IFormEvent>} props.register - Функция для регистрации полей формы.
+ * @param {UseFormWatch<IFormEvent>} props.watch - Функция для отслеживания значений полей формы.
+ * @param {UseFormSetValue<IFormEvent>} props.setValue - Функция для установки значения полей формы.
+ * @param {FieldErrors<IFormEvent>} props.errors - Объект с ошибками валидации формы.
+ * @param {string} props.active - Активное значение статуса соревнования.
+ * @param {React.Dispatch<React.SetStateAction<string>>} props.setActive - Функция для изменения активного значения статуса соревнования.
+ * @param {React.ReactNode} props.children - Дочерние элементы компонента.
+ * @param {React.Dispatch<React.SetStateAction<{imgD: string; imgH: string; imgV: string;}>>} props.setBase64 - Функция для установки значения base64 изображения.
+ * @param {string | undefined} props.imageDef - URL изображения по умолчанию.
+ * @param {string | undefined} props.imageHor - URL горизонтального изображения.
+ * @param {string | undefined} props.imageVer - URL вертикального изображения.
+ * @param {React.Dispatch<React.SetStateAction<string>> | undefined} props.setImageDef - Функция для изменения URL изображения по умолчанию.
+ * @param {React.Dispatch<React.SetStateAction<string>> | undefined} props.setImageVer - Функция для изменения URL вертикального изображения.
+ * @param {React.Dispatch<React.SetStateAction<string>> | undefined} props.setImageHor - Функция для изменения URL горизонтального изображения.
+ * @returns {JSX.Element} - Компонент формы для ввода данных о соревновании.
+ */
 export const FormEvent: FC<IInputEvent> = ({ register, watch, setValue, errors, active, setActive, children, setBase64, imageDef, imageHor, imageVer, setImageDef, setImageHor, setImageVer }: IInputEvent) => {
 
 

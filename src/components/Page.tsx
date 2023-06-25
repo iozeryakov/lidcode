@@ -1,5 +1,17 @@
 import { FC } from "react";
 import { IInfoPage } from "../types/IInfo";
+
+/**
+ * Компонент номера страницы.
+ *
+ * @component
+ * 
+ * @param {IInfoPage} props - Свойства компонента.
+ * @param {number} props.number - Номер страницы.
+ * @param {boolean | undefined} props.active - Флаг активности страницы.
+ * @param {() => void} props.onClick - Обработчик клика на номер страницы.
+ * @returns {JSX.Element} - Компонент номера страницы.
+ */
 export const Page: FC<IInfoPage> = ({ number, active, onClick }: IInfoPage) => {
   return (
     <div

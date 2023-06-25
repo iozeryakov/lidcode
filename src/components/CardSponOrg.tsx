@@ -2,6 +2,20 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { IInfoSponOrg } from "../types/IInfo";
 
+/**
+ * Компонент карточки спонсора или организатора.
+ *
+ * @component
+ * 
+ * @param {IInfoSponOrg} props - Свойства компонента карточки спонсора или организатора.
+ * @param {string} props.id - Идентификатор спонсора или организатора.
+ * @param {string} props.name - Название спонсора или организатора.
+ * @param {string} props.imageDef - Ссылка на изображение спонсора или организатора.
+ * @param {string} props.imageHor - Ссылка на горизонтальная изображение соревнования.
+ * @param {string} props.imageVer - Ссылка на вертикальная изображение соревнования.
+ * @param {string} props.link - Ссылка на сайт спонсора или организатора.
+ * @returns {JSX.Element} - Компонент карточки спонсора или организатора.
+ */
 export const CardSponOrg: FC<IInfoSponOrg> = ({ id, name, imageDef, imageHor, imageVer, link }: IInfoSponOrg) => {
 
     return (

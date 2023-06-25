@@ -6,12 +6,19 @@ import useAxios from "../../../hooks/useAxios";
 import { $authHost } from "../../../api/axiosApi";
 import { observer } from "mobx-react-lite";
 
-
+/**
+ * Компонент, отображающий страницу со списком команд.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий страницу со списком команд.
+ */
 export const AdminTeam: FC = observer(() => {
   const { user } = useContext(Context)
   const [data, errorData, loadingData, axiosFetchData] = useAxios();
   const [filter, setFilter] = useState([{ id: "1", name: "Все" }])
   const [activeFilter, setActiveFilter] = useState({ id: "1", name: "Все" })
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetchData({
       axiosInstance: $authHost,

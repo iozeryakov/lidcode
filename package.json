@@ -29,6 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "serve-build": "serve -l 80 -s build",
     "start": "set PORT=80&&react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

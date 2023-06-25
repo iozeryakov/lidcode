@@ -1,17 +1,38 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { IInfoDropdownButton } from "../types/IInfo";
 
+/**
+ * Компонент выпадающей кнопки.
+ *
+ * @component
+ * 
+ * @param {IInfoDropdownButton} props - Свойства компонента.
+ * @param {string} props.name - Название кнопки.
+ * @param {string} props.sel - Выбранное значение кнопки.
+ * @param {IInfoList[]} props.list - Список значений для выбора.
+ * @param {React.Dispatch<React.SetStateAction<string>> | ((id: string) => void)} props.setSel - Функция для установки выбранного значения.
+ * @param {string} props.id - Идентификатор компонента.
+ * @returns {JSX.Element} Компонент выпадающей кнопки.
+ */
 export const DropdownButton: FC<IInfoDropdownButton> = ({ name, sel, list, setSel, id }: IInfoDropdownButton) => {
-    const buttonRef = useRef(null)
+    const buttonRef = useRef<HTMLButtonElement>(null)
     const [active, setActive] = useState(false)
 
     useEffect(() => {
-        const handleClick = (e: any) => {
+        /**
+         * Обработчик клика вне компонента кнопки.
+         *
+         * @param {MouseEvent} e - Объект события клика.
+         */
+        const handleClick = (e: MouseEvent) => {
             if (e.target !== buttonRef.current) {
                 setActive(false)
             }
         }
         document.addEventListener("click", handleClick)
+        /**
+         * Очистка слушателя событий при размонтировании компонента.
+         */
         return () => { document.removeEventListener("click", handleClick) }
     }, [buttonRef])
 

@@ -9,6 +9,11 @@ import { $authHost } from "../../../api/axiosApi"
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
+/**
+ * Компонент, отображающий страницу для добавления нового материала.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий страницу для добавления нового материала.
+ */
 export const AdminMaterialNew: FC = observer(() => {
   const { modal, user } = useContext(Context)
   const navigate = useNavigate()
@@ -16,6 +21,12 @@ export const AdminMaterialNew: FC = observer(() => {
   const [response, error, loading, axiosFetch] = useAxios();
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<IFormMaterial>({ mode: "onChange" });
 
+  /**
+   * Отправляет данные формы на сервер
+   * @param name Название 
+   * @param link Ссылка на материал
+   * @param file Файл на материал
+   */
   const postData = (link: string, name: string, file?: string) => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -25,6 +36,10 @@ export const AdminMaterialNew: FC = observer(() => {
     });
   }
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormMaterial> = data => {
     if (data.file.length !== 0 && data.link.length !== 0) {
       modal.setIsVisible("Должно быть указано или ссылка или файл!", true)

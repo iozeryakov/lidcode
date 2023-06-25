@@ -10,6 +10,9 @@ import axios from "../../api/axiosApi"
 import { EVENT_ROUTER, REGEXP_EMAIL, REGEXP_PHONE, REGISTRATIONTM_ROUTER } from "../../utils/consts";
 import { Context } from "../..";
 
+/**
+ * Компонент, отображающий страницу с одиночной регистрацией.
+ */
 export const Registration: FC = () => {
   const navigate = useNavigate()
   const { modal } = useContext(Context)
@@ -18,11 +21,19 @@ export const Registration: FC = () => {
   const [data, errorData, loadingData, axiosFetchData] = useAxios();
   const [putResponse, putError, putLoading, putAxiosFetch] = useAxios();
 
+  /**
+   * Обработчик отправки формы регистрации
+   * @param data Данные формы регистрации
+   */
   const onSubmit: SubmitHandler<IFormRegistr> = data => {
 
     putData(data.fullName, [{ emailAdress: data.email, name: data.fullName, organization: data.organization, phoneNumbers: data.phone, universityCourse: data.course, universityFaculty: data.faculty, coach: true, contact: true, main: true, reserve: false }])
   };
-
+  /**
+  * Отправляет данные формы регистрации на сервер
+  * @param name ФИО
+  * @param TeamList Список участников команды
+  */
   const putData = (
     name: string,
     TeamList: IFormParticipant[]) => {
@@ -34,7 +45,9 @@ export const Registration: FC = () => {
       requestConfig: { "TeamData": { event_id: id, name: name, status: "1" }, "TeamListParticipantsData": TeamList }
     });
   }
-
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetchData({
       axiosInstance: axios,
@@ -52,7 +65,7 @@ export const Registration: FC = () => {
   useEffect(() => {
     if (putResponse?.TeamListParticipantsData?.length) {
       modal.setIsVisible("Заявка отправлена", false)
-      //*navigate("../" + EVENT_ROUTER + "/" + id)
+      navigate("../" + EVENT_ROUTER + "/" + id)
     } else if (putResponse?.EventData?.length) {
       modal.setIsVisible("Заявка не отправлена, максимальное количество команд!", true)
     } else {

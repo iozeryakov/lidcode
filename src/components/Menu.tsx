@@ -12,6 +12,13 @@ import { ItemMenu } from "./ItemMenu";
 import { User } from "./User";
 import { Context } from "..";
 
+/**
+ * Компонент меню.
+ *
+ * @component
+ * 
+ * @returns {JSX.Element} - Компонент меню.
+ */
 export const Menu: FC = () => {
   const { user } = useContext(Context)
   const { pathname } = useLocation();

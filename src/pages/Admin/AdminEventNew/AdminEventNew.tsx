@@ -11,7 +11,11 @@ import { Loading } from "../../../components/Loading";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
-
+/**
+ * Компонент, отображающий страницу для добавления нового соревнования.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий страницу для добавления нового соревнования.
+ */
 export const AdminEventNew: FC = observer(() => {
   const navigate = useNavigate()
   const location = useLocation()
@@ -21,6 +25,24 @@ export const AdminEventNew: FC = observer(() => {
   const [response, error, loading, axiosFetch] = useAxios();
   const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<IFormEvent>({ mode: "onChange", defaultValues: { maxTeam: 1, minParticipant: 1, maxParticipant: 1 } });
 
+  /**
+   * Отправляет данные формы на сервер
+   * @param name Название 
+   * @param status Статус соревнования
+   * @param maxNumberOfParticipants Максимальное кол-во команд
+   * @param maxNumberOfTeam Максимальное ко-во участников в команде
+   * @param minNumberOfParticipants Минимальное кол-во участников в команде
+   * @param description Описание
+   * @param regulations Правила
+   * @param dateCloseRegister Дата и время  закрытия регистрации
+   * @param dateEnd Дата и время окончания соревнования
+   * @param dateRegister Дата и время начала регистрации
+   * @param dateStart Дата и время старта соревнований
+   * @param timePublicationAdditionalMaterial Дата и время публикации материалов
+   * @param imageDef Изображение по умолчанию
+   * @param imageHor Изображение горизонтальное
+   * @param imageVer Изображение вертикальное
+   */
   const postData = (status: string, name: string, maxNumberOfTeam: number, minNumberOfParticipants: number, maxNumberOfParticipants: number, description: string, regulations: string, dateRegister: string, dateCloseRegister: string, dateStart: string, dateEnd: string, timePublicationAdditionalMaterial: string, imageDef?: string, imageHor?: string, imageVer?: string) => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -30,6 +52,10 @@ export const AdminEventNew: FC = observer(() => {
     });
   }
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormEvent> = data => {
     if (data.minParticipant <= data.maxParticipant) {
       if (data.dateOpen <= data.dateClose && data.dateClose <= data.dateStart && data.dateStart <= data.dateEnd) {

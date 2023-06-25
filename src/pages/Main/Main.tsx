@@ -6,12 +6,18 @@ import axios from "../../api/axiosApi"
 import { Pages } from "../../components/Pages";
 import { useLocation } from "react-router-dom";
 
+/**
+ * Компонент, отображающий главную страницу со списком соревнований.
+ */
 export const Main: FC = () => {
   const location = useLocation()
   const [data, errorData, loadingData, axiosFetchData] = useAxios();
   const [CountList, setCountList] = useState<number[]>([]);
   const [page, setPage] = useState(1)
 
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetchData({
       axiosInstance: axios,
@@ -36,14 +42,11 @@ export const Main: FC = () => {
   }, [page, data])
 
   useEffect(() => {
-
-
     if (data?.CountList) {
       for (let i = 1; i < (data.CountList / 10) + 1; i++) {
         setCountList(prev => [...prev, i])
       }
     }
-
   }, [data])
 
 

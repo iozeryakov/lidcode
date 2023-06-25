@@ -2,6 +2,16 @@ import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IInfoLoading } from "../types/IInfo";
 
+/**
+ * Компонент для отображения панели добавления элемента.
+ *
+ * @component
+ * 
+ * @param {IInfoLoading} props - Свойства компонента.
+ * @param {boolean} props.loading - Флаг загрузки.
+ * @param {boolean} props.error - Флаг ошибки.
+ * @returns {JSX.Element} - Компонент для отображения панели добавления элемента.
+ */
 export const PanelAdd: FC<IInfoLoading> = ({ loading, error }: IInfoLoading) => {
   const location = useLocation();
 

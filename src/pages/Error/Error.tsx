@@ -1,6 +1,9 @@
 import { FC } from "react";
 import { MainLayout } from "../../layouts/MainLayout";
 
+/**
+ * Компонент, отображающий страницу с ошибкой 404 - страница не найдена.
+ */
 export const Error: FC = () => {
     return (
         <MainLayout>

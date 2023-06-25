@@ -1,8 +1,13 @@
 import { FC } from "react";
 import { ContentAll } from "../../../components/ContentAll";
 import { AdminLayout } from "../../../layouts/AdminLayout";
-export const AdminSponsor: FC = () => {
 
+/**
+ * Компонент, отображающий страницу со списком спосоров.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий страницу со списком спосоров.
+ */
+export const AdminSponsor: FC = () => {
 
   return (
     <AdminLayout name="Спонсоры">

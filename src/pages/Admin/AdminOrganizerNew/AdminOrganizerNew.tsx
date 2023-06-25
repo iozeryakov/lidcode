@@ -9,6 +9,11 @@ import { $authHost } from "../../../api/axiosApi"
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
+/**
+ * Компонент, отображающий страницу для добавления нового организатора.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий страницу для добавления нового организатора.
+ */
 export const AdminOrganizerNew: FC = observer(() => {
   const { modal, user } = useContext(Context)
   const navigate = useNavigate()
@@ -17,6 +22,14 @@ export const AdminOrganizerNew: FC = observer(() => {
   const [response, error, loading, axiosFetch] = useAxios();
   const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<IFormOrgSpon>({ mode: "onChange" });
 
+  /**
+   * Отправляет данные формы на сервер
+   * @param name Название 
+   * @param link Ссылка на организатора
+   * @param imageDef Изображение по умолчанию
+   * @param imageHor Изображение горизонтальное
+   * @param imageVer Изображение вертикальное
+   */
   const postData = (link: string, name: string, imageDef?: string, imageHor?: string, imageVer?: string) => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -26,6 +39,10 @@ export const AdminOrganizerNew: FC = observer(() => {
     });
   }
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormOrgSpon> = data => {
     if (base64.imgD || base64.imgH || base64.imgV) {
       postData(data.link, data.title, base64.imgD, base64.imgH, base64.imgV)

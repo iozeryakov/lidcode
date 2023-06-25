@@ -14,7 +14,11 @@ import { DropdownButton } from "../../../components/DropdownButton";
 import { Loading } from "../../../components/Loading";
 import { stringMd5 } from 'react-native-quick-md5';
 
-
+/**
+ * Компонент, отображающий страницу для добавления нового администратора.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий страницу для добавления нового администратора.
+ */
 export const AdminAdminsNew: FC = observer(() => {
     const { modal, user } = useContext(Context)
     const navigate = useNavigate()
@@ -23,6 +27,13 @@ export const AdminAdminsNew: FC = observer(() => {
     const [active, setActive] = useState("0")
     const StatusList = [{ id: "0", name: "Без доступа к админ-рам", forSorted: 0 }, { id: "1", name: "Добавление новых админ-ров", forSorted: 1 }, { id: "2", name: "Всё", forSorted: 2 }]
     const { register, handleSubmit, formState: { errors } } = useForm<{ login: string, password: string }>({ mode: "onChange" });
+
+    /**
+   * Отправляет данные формы на сервер
+   * @param login Логин
+   * @param password Пороль
+   * @param access Права доступа
+   */
     const postData = (login: string, password: string, access: string) => {
         axiosFetch({
             axiosInstance: $authHost,
@@ -32,11 +43,15 @@ export const AdminAdminsNew: FC = observer(() => {
         });
     }
 
-
+    /**
+     * Обработчик отправки формы 
+     * @param data Данные формы 
+     */
     const onSubmit: SubmitHandler<{ login: string, password: string }> = data => {
         postData(data.login, stringMd5(data.password), active)
 
     };
+
     useEffect(() => {
 
         if (response?.token && !loading && error.length === 0) {

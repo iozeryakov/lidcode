@@ -4,7 +4,23 @@ import { Link } from "react-router-dom";
 import { EVENT_ROUTER } from "../utils/consts";
 import { IInfoCard } from "../types/IInfo";
 
-
+/**
+ * Компонент карточки соревнования.
+ *
+ * @component
+ * 
+ * @param {IInfoCard} props - Свойства компонента карточки.
+ * @param {string} props.id - Идентификатор соревнования.
+ * @param {string} props.name - Название соревнования.
+ * @param {string} props.statusNow - Текущий статус соревнования.
+ * @param {number} props.minNumberOfParticipants - Минимальное количество участников.
+ * @param {number} props.maxNumberOfParticipants - Максимальное количество участников.
+ * @param {string} props.description - Описание соревнования.
+ * @param {string} props.imageDef - Ссылка на изображение соревнования.
+ * @param {string} props.imageHor - Ссылка на горизонтальная изображение соревнования.
+ * @param {string} props.imageVer - Ссылка на вертикальная изображение соревнования.
+ * @returns {JSX.Element} - Компонент карточки соревнования.
+ */
 export const Card: FC<IInfoCard> = ({ id, name, statusNow, minNumberOfParticipants, maxNumberOfParticipants, description, imageDef, imageHor, imageVer }: IInfoCard) => {
 
     return (

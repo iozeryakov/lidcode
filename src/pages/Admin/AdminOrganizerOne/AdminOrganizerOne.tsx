@@ -9,6 +9,11 @@ import { Context } from "../../..";
 import { $authHost } from "../../../api/axiosApi"
 import { observer } from "mobx-react-lite";
 
+/**
+ * Компонент, отображающий страницу для изменения организатора.
+ * 
+ * @returns {JSX.Element} - Компонент, отображающий страницу для изменения организатора.
+ */
 export const AdminOrganizerOne: FC = observer(() => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -22,6 +27,14 @@ export const AdminOrganizerOne: FC = observer(() => {
   const [response, error, loading, axiosFetch] = useAxios();
   const [putResponse, putError, putLoading, putAxiosFetch] = useAxios();
 
+  /**
+   * Отправляет данные формы на сервер
+   * @param name Название 
+   * @param link Ссылка на оганизатора
+   * @param imageDef Изображение по умолчанию
+   * @param imageHor Изображение горизонтальное
+   * @param imageVer Изображение вертикальное
+   */
   const putData = (link: string, name: string, imageDef?: string, imageHor?: string, imageVer?: string) => {
     putAxiosFetch({
       axiosInstance: $authHost,
@@ -31,6 +44,9 @@ export const AdminOrganizerOne: FC = observer(() => {
     });
   }
 
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -40,6 +56,10 @@ export const AdminOrganizerOne: FC = observer(() => {
     });
   }
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormOrgSpon> = data => {
 
     putData(data.link, data.title, base64.imgD ? base64.imgD : imageDef ? undefined : imageDef, base64.imgH ? base64.imgH : imageHor ? undefined : imageHor, base64.imgV ? base64.imgV : imageVer ? undefined : imageVer)

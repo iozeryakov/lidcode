@@ -2,6 +2,22 @@ import { FC, useEffect } from "react";
 import { InputText } from "./InputText";
 import { IInputParticipant } from "../types/IInputs";
 import { REGEXP_EMAIL, REGEXP_PHONE } from "../utils/consts";
+
+/**
+ * Компонент формы для ввода данных участника.
+ *
+ * @component
+ * 
+ * @param {IInputParticipant} props - Свойства компонента.
+ * @param {number} props.number - Номер участника.
+ * @param {IInfoParticipant} props.info - Информация о участнике.
+ * @param {(i: IInfoParticipant) => void} props.setData - Функция для установки данных участника.
+ * @param {((id: number) => void) | undefined} props.removeData - Функция для удаления данных участника.
+ * @param {UseFormRegister<any>} props.register - Функция для регистрации полей формы.
+ * @param {UseFormWatch<any>} props.watch - Функция для отслеживания значений полей формы.
+ * @param {FieldErrors<IFormTeam>} props.errors - Объект с ошибками валидации формы.
+ * @returns {JSX.Element} - Компонент формы для ввода данных участника.
+ */
 export const FormParticipant: FC<IInputParticipant> = ({
   number,
   info,

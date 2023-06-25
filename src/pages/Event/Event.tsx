@@ -7,10 +7,17 @@ import { CardSponOrg } from "../../components/CardSponOrg";
 import useAxios from "../../hooks/useAxios";
 import axios from "../../api/axiosApi"
 
+
+/**
+ * Компонент, отображающий страницу с информацией о конкретном соревновании.
+ */
 export const Event: FC = () => {
   const { id } = useParams()
   const [data, errorData, loadingData, axiosFetchData] = useAxios();
 
+  /**
+   * Получает данные о событии с сервера.
+   */
   const getData = () => {
     axiosFetchData({
       axiosInstance: axios,

@@ -12,6 +12,13 @@ import { ADMIN_EVENT_ROUTER, ADMIN_ROUTER } from "../utils/consts";
 import { Loading } from "./Loading";
 import { stringMd5 } from 'react-native-quick-md5';
 
+
+/** Компонент авторизации.
+*
+* @component
+
+* @returns {JSX.Element} - Компонент авторизации.
+*/
 export const Login: FC = observer(() => {
     const { user, modal } = useContext(Context)
     const location = useLocation();

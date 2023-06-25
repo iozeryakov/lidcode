@@ -4,6 +4,15 @@ import useWindowDimensions from "../utils/size";
 import { Header } from "../components/Header";
 import { Modal } from "../components/Modal";
 import { Link, useLocation } from "react-router-dom";
+
+/**
+ * Компонент, представляющий макет основного контента приложения.
+ * 
+ * @component
+ * 
+ * @param {IMainLayout} props - Свойства компонента MainLayout.
+ * @returns {JSX.Element} Элемент JSX, представляющий макет основного контента приложения.
+ */
 export const MainLayout: FC<IMainLayout> = ({
     children,
 }: IMainLayout) => {

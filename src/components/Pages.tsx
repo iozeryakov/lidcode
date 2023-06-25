@@ -2,7 +2,17 @@ import { FC } from "react";
 import { Page } from "./Page";
 import { IInfoPages } from "../types/IInfo";
 
-
+/**
+ * Компонент для отображения нумерации страниц.
+ *
+ * @component
+ * 
+ * @param {IInfoPages} props - Свойства компонента.
+ * @param {number} props.page - Текущая страница.
+ * @param {number[]} props.CountList - Массив номеров страниц.
+ * @param {React.Dispatch<React.SetStateAction<number>>} props.setPage - Функция для установки текущей страницы.
+ * @returns {JSX.Element} - Компонент для отображения нумерации страниц.
+ */
 export const Pages: FC<IInfoPages> = ({ page, CountList, setPage }: IInfoPages) => {
   return (
     <div className="flex flex-row justify-between items-center h-[74px]  w-full px-[10px] sx:px-5 sm:px-[30px] md:gap-[10px] md:px-5 l:gap-5 l:px-[30px]">

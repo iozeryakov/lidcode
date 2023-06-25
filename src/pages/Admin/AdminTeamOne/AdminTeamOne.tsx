@@ -15,7 +15,11 @@ import { Loading } from "../../../components/Loading";
 import { IInfoParticipant } from "../../../types/IInfo";
 import { addData } from "../../../utils/addData";
 
-
+/**
+ * Компонент, отображающий страницу для изменения команд.
+ * 
+ * @returns {JSX.Element} - Компонент, отображающий страницу для изменения команд.
+ */
 export const AdminTeamOne: FC = observer(() => {
   const navigate = useNavigate()
   const location = useLocation()
@@ -29,6 +33,13 @@ export const AdminTeamOne: FC = observer(() => {
   const [putResponse, putError, putLoading, putAxiosFetch] = useAxios();
   const [participants, setParticipants] = useState<IInfoParticipant[]>([]);
 
+  /**
+   * Отправляет данные формы на сервер
+   * @param event_id Идентификатор команады
+   * @param name Название команды
+   * @param status Статус команды
+   * @param TeamList Список участников команды   
+   */
   const putData = (
     event_id: string,
     name: string,
@@ -42,6 +53,9 @@ export const AdminTeamOne: FC = observer(() => {
     });
   }
 
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -51,6 +65,10 @@ export const AdminTeamOne: FC = observer(() => {
     });
   }
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormTeam> = data => {
     if (check && data.participant.filter(i => i.main).length < Number(event?.minNumberOfParticipants)) {
       modal.setIsVisible("Mинимум " + event?.minNumberOfParticipants + " участник/а в основном составе!", true)

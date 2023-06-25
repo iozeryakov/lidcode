@@ -12,6 +12,12 @@ import { IInfoParticipant } from "../../../types/IInfo";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
+
+/**
+ * Компонент, отображающий страницу для добавления новой команды.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий страницу для добавления новой команды.
+ */
 export const AdminTeamNew: FC = observer(() => {
   const { modal, user } = useContext(Context)
   const navigate = useNavigate()
@@ -21,6 +27,12 @@ export const AdminTeamNew: FC = observer(() => {
   const { register, handleSubmit, watch, unregister, formState: { errors } } = useForm<any>({ mode: "onChange" });
   const [participants, setParticipants] = useState<IInfoParticipant[]>([]);
 
+  /**
+  * Отправляет данные формы на сервер
+  * @param name Название команды
+  * @param status Статус команды
+  * @param participants Список участников команды   
+  */
   const postData = (name: string, status: string, participants: IFormParticipant[]) => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -30,6 +42,10 @@ export const AdminTeamNew: FC = observer(() => {
     });
   }
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormTeam> = data => {
     if (check) {
 

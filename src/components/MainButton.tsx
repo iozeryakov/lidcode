@@ -1,6 +1,16 @@
 import { FC } from "react";
 import { IInfoMainButton } from "../types/IInfo";
-
+/**
+ * Компонент основной кнопки.
+ *
+ * @component
+ * 
+ * @param {IInfoMainButton} props - Свойства компонента.
+ * @param {string} [props.className=""] Дополнительный класс для кнопки.
+ * @param {string} props.name Текст кнопки.
+ * @param {() => void} props.click Обработчик клика по кнопке.
+ * @returns {JSX.Element} - Компонент основной кнопки.
+ */
 export const MainButton: FC<IInfoMainButton> = ({ className = "", name, click }: IInfoMainButton) => {
 
     return (

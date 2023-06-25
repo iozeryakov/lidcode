@@ -6,10 +6,17 @@ import { EVENT_ROUTER } from "../../utils/consts";
 import axios from "../../api/axiosApi"
 import useAxios from "../../hooks/useAxios";
 
+
+/**
+ * Компонент, отображающий страницу правил соревнований.
+ */
 export const Rules: FC = () => {
     const { id } = useParams()
     const [data, errorData, loadingData, axiosFetchData] = useAxios();
 
+    /**
+     * Получает данные с сервера
+     */
     const getData = () => {
         axiosFetchData({
             axiosInstance: axios,

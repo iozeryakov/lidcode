@@ -4,6 +4,19 @@ import { IInfoHeader } from "../types/IInfo";
 import { Burger } from "./Burger";
 import { User } from "./User";
 import { ADMIN_EVENT_ROUTER } from "../utils/consts";
+
+/**
+ * Компонент заголовка страницы.
+ *
+ * @component
+ * 
+ * @param {IInfoHeader} props - Параметры компонента.
+ * @param {boolean} props.active - Определяет, активно ли меню бургера.
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} props.setActive - Функция для изменения состояния активности меню бургера.
+ * @param {boolean | undefined} props.admin - Определяет, является ли заголовок страницы заголовком администратора.
+ * @param {boolean} [props.isBasic=false] - Определяет, является ли страница базовой (не архивной).
+ * @returns {JSX.Element} - Компонент заголовка страницы.
+ */
 export const Header: FC<IInfoHeader> = ({ active, setActive, admin, isBasic = false }: IInfoHeader) => {
 
   return (

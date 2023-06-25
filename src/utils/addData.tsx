@@ -1,5 +1,11 @@
 import { IInfoParticipant } from "../types/IInfo";
 
+/**
+ * Добавляет данные в список участников.
+ * 
+ * @param {string} type - Тип данных.
+ * @param {React.Dispatch<React.SetStateAction<IInfoParticipant[]>>} setParticipants - Функция для обновления состояния участников.
+ */
 export const addData = (type: string, setParticipants: React.Dispatch<React.SetStateAction<IInfoParticipant[]>>) => {
     setParticipants((prevParticipants) => {
         const count = [

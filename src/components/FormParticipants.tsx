@@ -7,8 +7,30 @@ import { REGEXP_EMAIL, REGEXP_PHONE } from "../utils/consts";
 import { addData } from "../utils/addData";
 
 
-
+/**
+ * Компонент формы для сбора информации о участниках команды.
+ * 
+ * @component
+ *
+ * @param {IInputTeam} props - Свойства компонента.
+ * @param {UseFormRegister<IFormTeam>} props.register - Функция для регистрации полей формы.
+ * @param {FieldErrors<IFormTeam>} props.errors - Объект с ошибками валидации формы.
+ * @param {UseFormUnregister<any>} props.unregister - Функция для отмены регистрации полей формы.
+ * @param {UseFormWatch<IFormTeam>} props.watch - Функция для отслеживания значений полей формы.
+ * @param {React.ReactNode} props.children - Вложенные компоненты.
+ * @param {boolean} props.check - Флаг для проверки количества участников.
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} props.setCheck - Функция для установки изменения флага check.
+ * @param {number} props.min - Минимальное количество участников.
+ * @param {number} props.max - Максимальное количество участников.
+ * @param {IInfoParticipant[]} props.participants - Массив с информацией об участниках.
+ * @param {React.Dispatch<React.SetStateAction<IInfoParticipant[]>>} props.setParticipants - Функция для установки значения массива participants.
+ * @returns {JSX.Element} - Компонент формы для сбора информации о участниках команды.
+ */
 export const FormParticipants: FC<IInputTeam> = ({ register, errors, unregister, watch, children, check, setCheck, min, max, participants, setParticipants }: IInputTeam) => {
+  /**
+  * Функция для обновления данных участника.
+  * @param {Object} info - Информация о участнике.
+  */
   const setData = (info: IInfoParticipant) => {
     setParticipants((prevParticipants) => {
       let updateParticipants = prevParticipants.map((participant) => {
@@ -50,6 +72,10 @@ export const FormParticipants: FC<IInputTeam> = ({ register, errors, unregister,
 
   };
 
+  /**
+  * Функция для удаления данных участника по идентификатору.
+  * @param {number} id - Идентификатор участника.
+  */
   const removeData = (id: number) => {
     setParticipants((prevParticipants) => {
       let updateParticipants = prevParticipants.filter(

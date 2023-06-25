@@ -21,6 +21,7 @@ export interface IAdminLayout {
   handleSubmit?: UseFormHandleSubmit<any>;
   onSubmit?: SubmitHandler<any>;
 }
+
 export interface IMainLayout {
   children: ReactNode;
 }

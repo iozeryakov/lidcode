@@ -1,5 +1,24 @@
 import { FC } from "react";
 import { IInputText } from "../types/IInputs";
+
+/**
+ * Компонент для ввода текста.
+ *
+ * @component
+ * 
+ * @param {IInputText} props - Свойства компонента.
+ * @param {string} props.name - Название поля ввода.
+ * @param {string} props.placeholder - Плейсхолдер для поля ввода.
+ * @param {"text" | "password"} [props.type="text"] - Тип поля ввода.
+ * @param {UseFormRegister<any>} props.register - Функция регистрации поля ввода в форме.
+ * @param {string | undefined} props.required - Обязательное поле ввода.
+ * @param {string} props.title - Заголовок поля ввода.
+ * @param {FieldError | undefined} props.error - Объект ошибки поля ввода.
+ * @param {ValidationRule<RegExp> | undefined} props.pattern - Регулярное выражение для проверки значения поля ввода.
+ * @param {ValidationRule<number> | undefined} props.minLength - Минимальная длина значения поля ввода.
+ * @param {ValidationRule<number> | undefined} props.maxLength - Максимальная длина значения поля ввода.
+ * @returns {JSX.Element} - Компонент ввода текста.
+ */
 export const InputText: FC<IInputText> = ({
   name, placeholder,
   type = "text",
@@ -8,6 +27,7 @@ export const InputText: FC<IInputText> = ({
   pattern, minLength,
   maxLength
 }: IInputText) => {
+
   return (
     <div className="flex flex-col  w-full pb-[5px]">
       <label className="standart_text font-normal font-roboto">{name}</label>

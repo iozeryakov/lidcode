@@ -1,6 +1,18 @@
 import { FC } from "react";
 import { IInfoPanel } from "../types/IInfo";
 import { Link, useLocation } from "react-router-dom";
+
+/**
+ * Компонент для отображения панели действий.
+ *
+ * @component
+ * 
+ * @param {IInfoPanel} props - Свойства компонента.
+ * @param {boolean} props.selectAll - Флаг выбора всех элементов.
+ * @param {(checked: boolean) => void} props.select - Функция для выбора элементов.
+ * @param {() => void} props.remove - Функция для удаления элементов.
+ * @returns {JSX.Element} - Компонент для отображения панели действий.
+ */
 export const Panel: FC<IInfoPanel> = ({ selectAll, select, remove }: IInfoPanel) => {
   const location = useLocation();
 

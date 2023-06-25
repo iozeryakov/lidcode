@@ -1,6 +1,14 @@
 import { observer } from "mobx-react-lite";
 import { FC, useContext } from "react";
 import { Context } from "..";
+
+/**
+ * Компонент для отображения информации о пользователе.
+ *
+ * @component
+ * 
+ * @returns {JSX.Element} - Компонент для отображения информации о пользователе.
+ */
 export const User: FC = observer(() => {
   const { user } = useContext(Context)
 

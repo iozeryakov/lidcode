@@ -5,10 +5,31 @@ import { IInfoDropdownItems } from "../types/IInfo";
 import { Context } from "..";
 
 
-
+/**
+ * Компонент выпадающей кнопки со списком выбранных элементов.
+ *
+ * @component
+ * 
+ * @param {IInfoDropdownItems} props - Свойства компонента.
+ * @param {string} props.name - Название списка элементов.
+ * @param {string} props.id - Идентификатор списка элементов.
+ * @param {IInfoList[]} props.other - Список не выбранных элементов.
+ * @param {IInfoList[]} props.event - Список выбранных элементов.
+ * @param {React.Dispatch<React.SetStateAction<IInfoList[]>>} props.setEvent - Функция для установки списка выбранных элементов.
+ * @param {React.Dispatch<React.SetStateAction<IInfoList[]>>} props.setOther - Функция для установки списка не выбранных элементов.
+ * @param {number | undefined} props.maxT - Максимальное количество выбранных элементов.
+ * @param {number | undefined} props.min - Минимальное количество участников в команде.
+ * @param {number | undefined} props.max - Максимальное количество участников в команде.
+ * @param {string} props.link - Ссылка для перехода при выборе элемента.
+ * @returns {JSX.Element} - Компонент выпадающей кнопки со списком выбранных элементов.
+ */
 export const DropdownItems: FC<IInfoDropdownItems> = ({ name, id, other, event, setEvent, setOther, maxT, min, max, link }: IInfoDropdownItems) => {
     const { modal } = useContext(Context)
-
+    /**
+     * Функция для добавления выбранного элемента в список выбранных элементов.
+     *
+     * @param {string} id - Идентификатор выбранного элемента.
+     */
     const add = (id: string) => {
         const elem = other.find(i => i.id === id)
         if (elem) {
@@ -28,6 +49,11 @@ export const DropdownItems: FC<IInfoDropdownItems> = ({ name, id, other, event, 
 
         }
     }
+    /**
+     * Функция для удаления выбранного элемента из списка выбранных элементов.
+     *
+     * @param {string} id - Идентификатор выбранного элемента.
+     */
     const remove = (id: string) => {
         const elem = event.find(i => i.id === id)
         if (elem) {

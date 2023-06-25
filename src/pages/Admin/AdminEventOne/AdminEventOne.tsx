@@ -15,6 +15,11 @@ import { IInfoId, IInfoList } from "../../../types/IInfo";
 import { Loading } from "../../../components/Loading";
 import { ADMIN_MATERIAL_ROUTER, ADMIN_ORGANIZER_ROUTER, ADMIN_SPONSOR_ROUTER, ADMIN_TEAM_ROUTER } from "../../../utils/consts";
 
+/**
+ * Компонент, отображающий страницу для изменения соревнования.
+ * 
+ * @returns {JSX.Element} - Компонент, отображающий страницу для изменения соревнования.
+ */
 export const AdminEventOne: FC = observer(() => {
   const { user, modal } = useContext(Context)
   const { id } = useParams()
@@ -38,6 +43,10 @@ export const AdminEventOne: FC = observer(() => {
   const [putResponse, putError, putLoading, putAxiosFetch] = useAxios();
   const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<IFormEvent>({ mode: "onChange", defaultValues: { maxTeam: 1, minParticipant: 1, maxParticipant: 1 } });
 
+  /**
+   * Обработчик отправки формы 
+   * @param data Данные формы 
+   */
   const onSubmit: SubmitHandler<IFormEvent> = data => {
     if (data.minParticipant <= data.maxParticipant) {
       if (team.length > data.maxTeam) {
@@ -67,6 +76,9 @@ export const AdminEventOne: FC = observer(() => {
     }
   };
 
+  /**
+   * Получает данные с сервера
+   */
   const getData = () => {
     axiosFetch({
       axiosInstance: $authHost,
@@ -76,13 +88,36 @@ export const AdminEventOne: FC = observer(() => {
     });
   }
 
+  /**
+   * Отправляет данные формы на сервер
+   * @param name Название 
+   * @param status Статус соревнования
+   * @param maxNumberOfParticipants Максимальное кол-во команд
+   * @param maxNumberOfTeam Максимальное ко-во участников в команде
+   * @param minNumberOfParticipants Минимальное кол-во участников в команде
+   * @param description Описание
+   * @param regulations Правила
+   * @param dateCloseRegister Дата и время  закрытия регистрации
+   * @param dateEnd Дата и время окончания соревнования
+   * @param dateRegister Дата и время начала регистрации
+   * @param dateStart Дата и время старта соревнований
+   * @param timePublicationAdditionalMaterial Дата и время публикации материалов
+   * @param OrganizersList Список организаторов примязанных к соревнованию
+   * @param SponsorsList Список спонсоров примязанных к соревнованию
+   * @param TeamsList Список команд примязанных к соревнованию
+   * @param MaterialsList Список материалов примязанных к соревнованию
+   * @param imageDef Изображение по умолчанию
+   * @param imageHor Изображение горизонтальное
+   * @param imageVer Изображение вертикальное
+   * @param results Файл с результатами
+   */
   const putData = (name: string, status: string, maxNumberOfParticipants: number,
     maxNumberOfTeam: number, minNumberOfParticipants: number, description: string,
     regulations: string, dateCloseRegister: string, dateEnd: string,
     dateRegister: string, dateStart: string, timePublicationAdditionalMaterial: string,
     OrganizersList: IInfoId[], SponsorsList: IInfoId[], TeamsList: IInfoId[], MaterialsList: IInfoId[],
     imageDef?: string, imageHor?: string, imageVer?: string, results?: string,) => {
-   
+
 
     putAxiosFetch({
       axiosInstance: $authHost,

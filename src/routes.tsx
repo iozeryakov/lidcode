@@ -43,6 +43,14 @@ import {
   ADMIN_ADMINS_NEW_ROUTER
 } from "./utils/consts";
 
+/**
+ * Публичные маршруты приложения.
+ * 
+ * @type {RouteObject[]}
+ * 
+ * @property {string} path - Путь маршрута.
+ * @property {React.Component} Component - Компонент, связанный с маршрутом.
+ */
 export const publicRoutes = [
   {
     path: MAIN_ROUTER,

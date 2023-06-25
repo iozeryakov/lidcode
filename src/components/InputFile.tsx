@@ -2,6 +2,21 @@ import { FC, useState } from "react";
 import { IInputFile } from "../types/IInputs";
 import { dragLeaveHandler, dragStartHandler } from "../utils/dragAndDrop";
 import { Link } from "react-router-dom";
+/**
+ * Компонент поля ввода для загрузки файла.
+ *
+ * @component
+ *
+ * @param {IInputFile} props - Параметры компонента.
+ * @param {string} props.name - Название поля ввода.
+ * @param {UseFormRegister<any>} props.register - Функция для регистрации поля ввода.
+ * @param {string} props.title - Заголовок поля ввода.
+ * @param {UseFormWatch<any>} props.watch - Функция для отслеживания значения поля ввода.
+ * @param {UseFormSetValue<any>} props.setValue - Функция для установки значения поля ввода.
+ * @param {string | undefined} props.fileLink - Ссылка на скачивание файла.
+ * @param {React.Dispatch<React.SetStateAction<string>> | undefined} props.setFileLink - Функция для установки ссылки на файл.
+ * @returns {JSX.Element} - Компонент поля ввода для загрузки файла.
+ */
 
 export const InputFile: FC<IInputFile> = ({ name, register, title, watch, setValue, fileLink, setFileLink }: IInputFile) => {
   const file = watch(title, false)

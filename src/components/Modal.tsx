@@ -1,6 +1,14 @@
 import { observer } from "mobx-react-lite";
 import { FC, useContext } from "react";
 import { Context } from "..";
+
+/**
+ * Компонент модального окна.
+ *
+ * @component
+ * 
+ * @returns {JSX.Element} - Компонент модального окна.
+ */
 export const Modal: FC = observer(() => {
     const { modal } = useContext(Context)
 

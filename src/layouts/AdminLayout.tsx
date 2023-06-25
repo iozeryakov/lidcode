@@ -9,6 +9,14 @@ import { Login } from "../components/Login";
 import { Modal } from "../components/Modal";
 
 
+/**
+ * Компонент, представляющий макет административной панели.
+ * 
+ * @component
+ * 
+ * @param {IAdminLayout} props - Свойства компонента AdminLayout.
+ * @returns {JSX.Element} Элемент JSX, представляющий макет административной панели.
+ */
 export const AdminLayout: FC<IAdminLayout> = observer(({
   children,
   name,
@@ -20,7 +28,6 @@ export const AdminLayout: FC<IAdminLayout> = observer(({
 }: IAdminLayout) => {
   const { user } = useContext(Context)
   const { width } = useWindowDimensions()
-
   const buttonRef = useRef(null)
   const [active, setActive] = useState(false);
   const [activeFilter, setActiveFilter] = useState(false);

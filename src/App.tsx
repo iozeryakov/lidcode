@@ -6,6 +6,9 @@ import { Context } from ".";
 import useAxios from "./hooks/useAxios";
 import { $authHost } from "./api/axiosApi";
 
+/**
+ * Главный компонент приложения.
+ */
 export const App: FC = observer(() => {
   const { user } = useContext(Context)
   const [response, error, loading, axiosFetch] = useAxios();

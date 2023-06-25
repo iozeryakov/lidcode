@@ -4,6 +4,11 @@ import { AdminLayout } from "../../../layouts/AdminLayout";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
+/**
+ * Компонент, отображающий список администраторов в панели администратора.
+ *
+ * @returns {JSX.Element} - Компонент, отображающий список администраторов в панели администратора.
+ */
 export const AdminAdmins: FC = observer(() => {
     const { user } = useContext(Context)
     return (

@@ -2,6 +2,22 @@ import { FC, useEffect, useState } from "react";
 import { IInputImg } from "../types/IInputs";
 import { dragLeaveHandler, dragStartHandler } from "../utils/dragAndDrop";
 
+/**
+ * Компонент поля ввода для загрузки изображения.
+ *
+ * @component
+ *
+ * @param {IInputImg} props - Параметры компонента.
+ * @param {string} props.name - Название поля ввода.
+ * @param {UseFormRegister<any>} props.register - Функция для регистрации поля ввода.
+ * @param {UseFormWatch<any>} props.watch - Функция для отслеживания значения поля ввода.
+ * @param {string} props.title - Заголовок поля ввода.
+ * @param {UseFormSetValue<any>} props.setValue - Функция для установки значения поля ввода.
+ * @param {string | undefined} props.imgLink - Ссылка на изображение.
+ * @param {React.Dispatch<React.SetStateAction<string>> | undefined} props.setImgLink - Функция для установки ссылки на изображение.
+ * @param {React.Dispatch<React.SetStateAction<{imgD: string; imgH: string; imgV: string;}>>} props.setBase64 - Функция для установки base64-кодированного значения изображения.
+ * @returns {JSX.Element} - Компонент поля ввода для загрузки изображения.
+ */
 export const InputImg: FC<IInputImg> = ({ name, register, watch, title, setValue, imgLink, setImgLink, setBase64 }: IInputImg) => {
   const image = watch(title, false)
   const [drag, setDrag] = useState(false)
